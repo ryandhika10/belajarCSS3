@@ -1,0 +1,117 @@
+ >> VALUE GRADIENT PADA PROPERTY BACKGROUND/BACKGROUND-IMAGE <<
+
+
+ >> gradients = Teknik memberikan warna gradasi pada elemen yg kita punya
+
+ >> Tipe gradients : 
+
+    1. linear-gradient = Memberi gradasi warna secara garis lurus
+
+    2. radial-gradient = Memberi gradasi warna secara melingkar
+
+ >> Contoh penggunaan linear-gradient : 
+
+    1. Di photoshop, kita bisa memberi gradasi warna dgn beberapa cara, dgn 
+       menggunakan blending option, lalu pilih gradient overlay, ada beberapa 
+       opsi pilihan, yaitu :
+
+       => Gradient, memilih gradasi warna seperti apa yg akan kita berikan 
+		    kepada objek, ketika menu gradient di klik akan menampilkan 
+		    menu pilihan warna gradient, kita juga bisa mencari warna 
+		    yg kita inginkan
+
+       => Angle, sudut dari gradasi warna, gradasi warna harus memiliki 2 warna 
+		 minimal, warna awal dan warna akhir. Valuenya berupa derajat
+
+ >> linear-gradient => Bukan property CSS3, melainkan value utk background-
+		       image
+
+ >> Alasan kenapa valuenya milik background-image adalah supaya kita bisa 
+    menggunakan property background-image dan background-color secara bersamaan
+
+ >> Penerapan value linear-gradient pada property background-image :
+
+    1. Buat file dgn ekstensi html yg di dlm nya terdapat struktur html 
+       sederhana
+
+    2. Di dlm tag body, buat tag div dan di dlm tag head, buat tag style yg di 
+       dlmnya terdapat selector div
+
+    3. Dlm selector div, buat property lebar 600px, tinggi 300px dan margin 
+       atas bawah 50px dan kiri kanan auto agar elemen berada di tengah dan 
+       warna backgroundnya salmon
+
+       Contoh : 
+
+		<style>
+			div {
+				width: 600px;
+				height: 300px;
+				margin: 50px auto;
+				background-color: salmon;
+			}
+		</style>
+	</head>
+	<body>
+		<div></div>
+	</body>
+
+    4. Ganti property background-color dgn background-image yg valuenya linear-
+       gradient()
+
+    5. Di dlm tanda kurung, kita bisa kasih beberapa value, tapi minimalnya 2 
+       value, warna awal dan warna akhir
+
+       Contoh : 
+
+	background-image: linear-gradient(red, green)
+
+    6. Hasilnya, setengah akan berwarna merah dan setengah hijau
+
+ >> Syntax sederhana : 
+
+    => background-image: linear-gradient(<warna awal>, <warna akhir>);
+
+ >> Kita bisa ganti property background-image jadi background saja
+
+ >> Jika ingin lebih dari 2 warna, tinggal tambahkan parameter lagi
+
+    Contoh : 
+
+	background-image: linear-gradient(
+			  	red,
+			  	#f0d606,
+			  	rgba(255, 255, 0, 1), 
+			  	green
+			  );
+
+ >> Multiple color :
+
+    => background: linear-gradient(<warna-1>, <warna-2>, ..., <warna-n>);
+
+ >> Mengatur arah gradient yg defaultnya dari atas ke bawah
+
+ >> Syntax lengkap : 
+
+    => background: linear-gradient(<sudut> | <arah>, <warna awal>, <warna 
+		   akhir>);
+
+ >> Contoh : 
+
+	background: linear-gradient(90deg, red, green)
+
+ >> Value sudut = deg(degree), bisa diberi value negatif
+
+ >> Value arah = to bottom, to top, to left, to right, to left top, to left 
+		 bottom, to right top, to right bottom
+
+ >> Contoh : 
+
+	background: linear-gradient(to bottom right, red, green);
+
+ >> color stop = Kita bisa memberi bobot warna yg berbeda, bukan 50%-50%
+
+ >> background: linear-gradient(to right, red 63%, green 80%);
+
+    => Dari 0-63% warna merah dan dari 80%-100% warna hijau, di antara 63%-80% 
+       warna tersebut adalah gradient nya

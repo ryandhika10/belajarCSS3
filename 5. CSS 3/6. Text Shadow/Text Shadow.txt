@@ -1,0 +1,62 @@
+ >> PROPERTY TEXT SHADOW <<
+
+
+ >> text-shadow = Mirip dgn property box-shadow, utk memberikan bayangan pada 
+		  teks
+		  -> Value : <x-offset(px)> <y-offset(px)> <blur(px)> 
+			     <color(text, rgba(), hexa/#)>
+
+ >> Fungsi dari parameter di valuenya itu sama seperti yg ada di box-shadow
+
+ >> Penerapan  text-shadow :
+
+    1. Buat file dgn ekstensi .html, yg di dlmnya terdapat struktur html 
+       sederhana
+
+    2. Buat tag h1 di dlm tag body yg isi kontennya adalah "Hello World". Buat 
+       tag style di dlm tag head yg di dlmnya buat selector h1
+
+    3. Tambahkan property font-size sebesar 100px, font-family arial, dan text-
+       align supaya berada di tengah
+
+       -> Contoh : 
+
+		<style>
+			h1 {
+				font-size: 100px;
+				font-family: arial;
+				text-align: center;
+			}
+		</style>
+	</head>
+	<body>
+		<h1>Hello World</h1>
+
+    >> Hasilnya akan muncul tulisan "Hello World" dgn ukuran 100px di web 
+       browser dan berada di tengah
+
+    4. Tambahkan property text-shadow dgn parameter pertama 5px agar bayangan 
+       di kanan, 5px lagi utk bayangan berada di bawah, 10px utk blurnya dan 
+       warna green
+
+       -> Contoh : 
+
+		text-shadow: 5px 5px 10px green;
+
+ >> Pada text-shadow, kita bisa berikan multiple shadow dgn memberi koma(,) 
+    lalu tambahkan parameter lainnya
+
+    -> Contoh : 
+
+	text-shadow: 5px 5px 10px green, -5px -5px 10px red;
+
+ >> Tinggal kita mainkan value dari parameternya agar terlihat bagus
+
+ >> Contoh penerapan multiple shadow pada text-shadow : 
+
+    1. Membuat teks terlihat 3 dimensi : 
+
+       Contoh :
+
+		color: white;
+		text-shadow: 0 2px 1px black;

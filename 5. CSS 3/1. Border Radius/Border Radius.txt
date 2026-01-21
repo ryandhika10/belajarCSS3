@@ -1,0 +1,81 @@
+ >> PROPERTY CSS3 BORDER RADIUS <<
+
+
+ >> Border-radius = Property CSS3 yg fungsinya membuat kotak yg kita punya 
+		    memiliki ujung-ujung yg tumpul, semakin besar value border-
+		    radius yg diberikan, ujung dari kotaknya semakin tumpul
+
+ >> Tahapan penerapan property border-radius : 
+
+    1. Sebelum penerapan property border-radius, kita buat folder yg di dlmnya 
+       ada file html yg isinya struktur html sederhana
+
+    2. Buat tag div dan di dlm tag head, buat tag style yg di dlmnya terdapat 
+       selector div
+
+    3. Di dlm selectornya, buat property width dan height, masing2 300px, dan 
+       warna backgroundnya salmon
+
+    Contoh : 
+
+		<style>
+			div {
+				width: 300px;
+				height: 300px;
+				background-color: salmon;
+			}
+		</style>
+	</head>
+	<body>
+		<div></div>
+	</body>
+
+    4. Tambahkan property border-radius dan beri value sebesar 10px
+
+    Contoh : 
+
+				border-radius: 10px;
+
+ >> Hasilnya, kotak akan menjadi tumpul di tiap sisinya. Begitu tag div di 
+    kontennya diberi tulisan, maka tulisannya akan keluar, karena bentuk tag 
+    div awal berupa kotak, begitu juga kita buat elemen lain di dlmnya
+
+ >> Utk mengatasinya, utk berada di tengah, kita tambahkan property text-align 
+    dgn value center, lalu property line-height dgn value sama seperti tinggi 
+    elemen parentnya
+
+ >> Semakin besar value border-radius yg diberikan, maka bentuk dari kotaknya 
+    akan semakin menjadi lingkaran. Rumusnya agar lingkaran adalah valuenya 
+    setengah dari lebar dan tinggi kotak
+
+ >> Karena rumusnya seperti itu utk membuat elemen menjadi lingkaran, maka 
+    valuenya bisa diganti dgn 50%, berapapun width dan heightnya, apabila sama, 
+    maka bentuknya pasti lingkaran
+
+ >> Kalau value lebar dan tinggi tidak sama, maka bentuknya akan menjadi elipse
+
+ >> Kita juga bisa mengganti hanya beberapa sisi saja utk membuat perseginya 
+    tumpul dgn property :
+
+    1. border-top-left-radius
+
+    2. border-top-right-radius
+
+    3. border-bottom-left-radius
+
+    4. border-bottom-right-radius
+
+    5. border-radius dgn 4 parameter mulai dari atas kiri searah jarum jam
+
+       Contoh : border-radius: 0(atas kiri) 40px(atas kanan) 50%(bawah kanan) 
+		0(bawah kiri)
+
+ >> Ketika memberi background-image, maka image berada di balik border-
+    radiusnya, ibaratnya seperti frame foto, atur ukuran backgroundnya menjadi 
+    cover agar memenuhi elemen, lalu gunakan no-repeat pada pengulangan 
+    backgroundnya
+
+ >> Ketika gambarnya bukan berasal dari property background-image, melainkan 
+    dari elemen tag img, maka gambar akan keluar dari border-radiusnya. 
+    Solusinya, di tag div kita beri property overflow dgn value hidden, jadi 
+    apapun yg keluar dari border-radius, sembunyikan, lalu atur ukuran imagenya

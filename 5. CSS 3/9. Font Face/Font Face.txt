@@ -1,0 +1,225 @@
+ >> PROPERTY FONT FACE <<
+
+
+ >> @font-face = Digunakan utk mengelola font pada CSS kita, karena font-family 
+		 memiliki keterbatasan
+
+ >> Penerapan penggunaan font : 
+
+    1. Menggunakan property font-family
+
+    2. Mengambil dari google font dgn mengembednya melalui css
+
+    3. Menggunakan @font-face
+
+ >> Penerapan pengelolaan font sebelum adanya CSS3 : 
+
+    1. Biasa kita gunakan font-family dgn value beberapa font yg ingin kita 
+       gunakan. Contoh : font-family: "Arial Narrow", arial, sans-serif;
+
+    2. Artinya kita memerintahkan CSS utk mencari font yg namanya "Arial 
+       Narrow" di dlm sistem operasi dari user atau client, kalau tidak ada 
+       carikan font yg namanya arial, kalau tidak ada carikan font yg 
+       kategorinya sans-serif
+
+ >> Hati2 dlm memilih font, dan usahakan font yg kita gunakan sudah ada di 
+    sistem operasi client/user
+
+ >> Cara kedua agar kita ingin menggunakan font yg bagus tanpa memikirkan user 
+    punya fontnya atau tidak, kita gunakan google fonts : 
+    https://fonts.google.com/
+
+ >> Di website tersebut, banyak font yg dimiliki google yg tersimpan di server 
+    google. Cara penggunaannya : 
+
+    1. Cari font yg diinginkan, klik fontnya
+
+    2. Klik tombol get font
+
+    3. Pilih mau embed code atau download fontnya
+
+    4. Jika pilih download all, maka font akan disimpan di komputer kita
+
+    5. Jika pilih embed code, maka ada 2 cara penempatan font di dlm CSS, yaitu 
+       melalui <link> dan @import
+
+    6. Tinggal klik copy code, lalu pindahkan ke CSS kita
+
+ >> Penerapannya : 
+
+    1. Buat file dgn ekstensi html yg di dlmnya terdapat struktur html 
+       sederhana
+
+    2. Buat tag h1 di dlm tag html yg isi kontennya "Hello World" dan tag style 
+       di dlm tag head
+
+    3. Buat selector h1 di dlm tag style dan tambahkan property ukuran font 
+       100px, text-align center dan font family dgn value arial narrow, arial 
+       dan sans serif
+
+       Contoh : 
+
+		<style>
+			h1 {
+				font-size: 100px;
+				text-align: center;
+				font-family: "Arial Narrow", arial, sans-serif;
+			}
+		</style>
+	</head>
+	<body>
+		<h1>Hello World</h1>
+	</body>
+
+    4. Di website google font, bagian <link>, copy embed font pilihan kita dgn 
+       klik copy code, lalu paste ke dlm tag head di kodingan kita setelah tag 
+       title
+
+       Contoh : 
+
+	<title>Font Face - CSS3</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com" />
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+	<link href="https://fonts.googleapis.com/css2 	family=Indie+Flower&display=swap" rel="stylesheet"/>
+
+    5. Kita bisa gunakan font yg kita pilih dgn mengganti value yg ada di dlm 
+       font-family, contoh penggunaannya berada di bawah kode yg kita copas 
+       sebelumnya
+
+       Contoh :
+
+	font-family: "Indie Flower", cursive;
+
+       => cursive = tipe font seperti sans-serif
+
+       => Sekarang kita menggunakan font namanya "Indie Flower yg ngambil dari 
+	  servernya google"
+
+       => Pastikan gunakan internet utk menerapkan teknik ini
+
+ >> Jika Google Fonts tidak cukup utk memenuhi kebutuhan kita, solusinya adalah 
+    dgn menggunakan @font-face
+
+ >> Syntax Lengkap : 
+
+    @font-face{
+    font-family: 'namaFontBaru';
+    src: url('lokasi/file/fontBaru.eot');
+    src: url('lokasi/file/fontBaru.eot?#iefix') format('embedded-opentype'), 
+        url('lokasi/file/fontBaru.woff2') format('woff2'), 
+        url('lokasi/file/fontBaru.woff') format('woff'), 
+        url('lokasi/file/fontBaru.ttf') format('truetype'), 
+        url('lokasi/file/fontBaru.svg#svgFontName') format('svg')
+}
+
+ >> Sebelum kita menggunakan syntax di atas, pastikan kita memiliki font yg 
+    akan kita gunakan utk menerapkan @font-face
+
+ >> Jika sudah ada fontnya, simpan di dlm folder website kita, di CSSnya kita 
+    tulis syntax di atas
+
+ >> src pertama, digunakan jika font berada di 1 folder, jgn lupa sertakan 
+    ekstensi filenya
+
+ >> src kedua, digunakan ketika tipe ekstensi dari font yg kita miliki ada 
+    banyak
+
+ >> Kalau cuma ada 1 file saja, gunakan src pertama dan sesuaikan tipe ekstensi 
+    file nya
+
+ >> Tipe ekstensi font : 
+    
+    1. eot = embedded-opentype, tipe dari font
+
+    2. woff = web open file format
+
+    3. ttf = truetype font, standard yg biasa kita pakai
+
+ >> Masing2 font, karena tipe fontnya berbeda, dukungan web browsernya terhadap 
+    font juga berbeda
+
+ >> Font dgn format TTF/OTF dan WOFF didukung semua browser
+
+ >> Kekurangan TTF/OTF dibanding WOFF : 
+
+    1. TTF/OTF bukan spesifik digunakan utk website
+
+    2. Ketika font dgn ekstensi ini ditampilkan, prosesnya akan jauh lebih 
+       lambat dibanding WOFF
+
+    3. WOFF ekstensinya khusus utk web
+
+ >> Layanan mendownload font : 
+
+    1. https://fonts.google.com/
+
+    2. https://www.fontsquirrel.com/ (RADA ERROR)
+
+    3. https://www.fontspring.com/?srsltid=AfmBOoqzYA1nnhz5iXIeyH3QvpbeQt5BMOUfS3DJWX94W3wMGv-2_SlN
+
+    4. https://typenetwork.com/
+
+    5. https://www.typotheque.com/
+
+ >> Kita bisa mendownloadnya agar bisa digunakan ketika offline. Font di 
+    website di atas ada yg berbayar dan yg gratis, perhatikan juga licensenya 
+    apakah boleh atau tidak digunakan di website
+
+ >> Website font yg sering digunakan : fontsquirrel.com
+
+ >> Halaman websitenya seperti google font, halaman utama ketika baru buka 
+    webnya, akan menampilkan free font, ada berbagai macam font yg bisa kita 
+    gunakan
+
+ >> Cara menggunakan fontnya (RADA ERROR) : 
+
+    1. Perhatikan icon yg ada di kiri bawah font yg ingin kita pilih
+
+    2. Ada 4 icon yg masing2 peruntukkannya berbeda, icon warna hitam support 
+       sedangkan putih tidak support
+
+    3. Ketika salah satu icon di klik akan muncul penjelasan apakah kita bisa 
+       menggunakan fontnya secara komersial
+
+    4. Icon kedua yg harus kita perhatikan, icon ini menandakan kita bisa 
+       menggunakannya di website dgn menggunakan @font-face
+
+    5. Icon ketiga artinya bisa digunakan di e-book atau pdf, icon 4 artinya 
+       font bisa digunakan di aplikasi mobile
+
+    6. Pilih font alex brush sebagai contoh dgn klik bagian kanan bawah font yg 
+       berwarna biru
+
+    7. Ekstrak ekstensi zipnya agar menjadi folder, jika sudah akan nampak di 
+       dlmnya ada font dgn ektensi .ttf serta ada license
+
+    8. Setelahnya tinggal kita copas ke dlm folder website kita
+
+    9. Kembali ke kodingan kita, beri komentar pada tag link yg sudah kita 
+       copas di google font
+
+    10. Di dlm tag style buat @font-face berada di paling atas yg di dlmnya 
+        kita beri property font-family dgn value nama yg kita inginkan, bebas. 
+        Tapi nanti, nama fontnya akan disarankan oleh fontnya
+
+    11. Buat property src dgn value url() yg mengarah ke file font kita beserta 
+        ekstensi filenya, setelahnya kita tambahkan format(), utk ekstensi .ttf 
+        atau .otf value dari formatnya adalah truetype
+
+        Contoh : 
+
+			@font-face {
+				font-family: "Alex Brush";
+				src: url("AlexBrush-Regular.ttf") 					format("truetype");
+			}
+
+    12. Setelahnya tinggal kita tambahkan value pada property font-family di 
+    	selector h1 dgn nama yg ada di font-family di selector @font-face
+
+	Contoh : 
+
+			h1 {
+				font-size: 100px;
+				text-align: center;
+				font-family: "Alex Brush", arial;
+			}

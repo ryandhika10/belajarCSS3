@@ -1,0 +1,42 @@
+ >> RGBa & HSLa PADA CSS3 <<
+
+
+ >> rgba() = red green blue alpha, digunakan utk memberi warna dgn kadar merah, 
+	     biru dan hijau beserta transparansinya
+
+ >> Penerapannya : 
+
+    1. Buat/Copas kodingan yg ada pada materi opacity CSS3
+
+    2. Pada saat kita memberi opacity pada elemen .satu, maka semua elemen di 
+       dlmnya juga ikut transparan
+
+    3. Cara utk membuat elemen di dlm .satu tdk transparan adalah dgn 
+       menggunakan property yg namanya rgba()
+
+    4. Klo kita lihat di photoshop, warna oren pada .satu, hexadecimalnya 
+       adalah #f6600, mempunyai nilai rgb, R:255, G:102, B:0
+
+    5. Di kodingan, kita ubah value background-color utk .satu menjadi rgb(255, 
+       102, 0), maka hasilnya sama
+
+    6. Sekarang kita bisa menambahkan satu parameter yaitu a atau alpha utk 
+       transparansinya, valuenya mirip dgn opacity(0-1)
+
+    Contoh : 
+
+				background-color: rgba(255, 102, 0, 0.5);
+
+    7. Sekarang kita bisa buat parentnya transparan, namun elemen di dlmnya 
+       tdk. Karean yg kita beri transparan warna, bukan elemennya
+
+ >> hsla() = hue saturation lightness alpha, hue adalah roda warna valuenya 
+	     mirip seperti derajat, saturation adalah saturasi, valuenya antara 
+	     0-100% semakin tinggi semakin murni warnanya, semakin rendah, 
+	     warnanya akan mengarah ke putih, lightness adalah kecerahannya, 
+	     semakin tinggi warnanya semakin terang, semakin rendah warnanya 
+	     semakin gelap
+
+    Contoh : 
+
+				background-color: hsla(24, 100%, 68%, 0.5);

@@ -1,0 +1,88 @@
+ >> OPACITY CSS3 <<
+
+
+ >> opacity = Memberikan transparansi pada elemen html
+
+ >> Penerapan sebelum CSS3 : 
+
+    1. Buat file html yg isinya syntax html sederhana, di dlm tag body ada tag 
+       div
+
+    2. Buat tag style di dlm tag head yg di dlmnya buat selector body, 
+       tambahkan property background-image yg mengarah ke gambar background yg 
+       kita punya
+
+    3. Buat selector div, tambahkan property lebar dan tingginya 300px, lalu 
+       beri warna background orange(#f60/#ff6600)
+
+    4. Utk membuat kotak tag div transparan sebelum CSS3, kita bisa buka 
+       photoshop, lalu buat kotak dengan ukuran dan warna yang sama
+
+    5. Caranya di photoshop, kita tinggal kurangi persentase opacitynya. 
+       Setelahnya kita ambil sebagian kotak tersebut, lalu jadikan background 
+       image di website kita
+
+    6. Sekarang kotaknya menjadi transparan, namun kotak ini berasal dari 
+       background image, bukan menggunakan property CSS3
+
+    7. Itu akan sangat merepotkan apabila kita ingin mengubah nilai dari 
+       opacitynya. Di CSS3 ada property yg namanya opacity
+
+ >> Opacity = Digunakan utk mengatur transparansi sebuah elemen
+
+ >> Penerapan Opacity : 
+
+    1. Setelah tahap 3 dari penerapan sebelumnya, kita tambahkan property 
+       opacity dgn value 0-1, 0 akan membuat kotak menjadi tidak 
+       terlihat/sangat transparan dan 1 itu sama saja opacity 100%
+
+    Contoh : 
+
+				opacity: 0.5 atau .5;
+
+ >> Kalau di dlm tag div tersebut terdapat elemen lain, maka otomatis elemen 
+    tersebut menjadi transparan sebesar value opacity yg diberikan tag div
+
+ >> Jika elemen tersebut keluar dari tag div, maka elemen tersebut masih 
+    transparan, namun antara elemen tersebut dan tag div, tidak memiliki 
+    transparansi, karena mereka memiliki transparansi yg sama
+
+ >> Jika elemen tersebut ingin transparansi terhadap tag div, maka elemen 
+    tersebut kita beri property opacity, jadi opacity di dlm opacity
+
+ >> Contoh : 
+
+			.satu {
+				width: 300px;
+				height: 300px;
+				background-color: #f60;
+				opacity: 0.5;
+				position: relative;
+			}
+
+			.dua {
+				width: 100px;
+				height: 100px;
+				background-color: blue;
+				position: absolute;
+				right: -50px;
+				bottom: -50px;
+				opacity: 0.5;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="satu">
+			<div class="dua"></div>
+		</div>
+
+ >> Hasilnya akan membuat elemen class dua, akan lebih transparan dibanding 
+    elemen class satu, tapi kita harus ingat, opacity 0.5 dari .dua, di ambil 
+    dari opacity 0.5 dari .satu
+
+ >> Yg artinya .dua memiliki transparansi 0.25, karena setengah dari 
+    opacity .satu, yaitu 0.5
+
+ >> Kita tdk bisa membuat elemen .dua tidak transparan, sementara elemen .satu, 
+    transparan menggunakan property opacity, karena elemen .satu menurunkan 
+    sifat ke elemen .dua

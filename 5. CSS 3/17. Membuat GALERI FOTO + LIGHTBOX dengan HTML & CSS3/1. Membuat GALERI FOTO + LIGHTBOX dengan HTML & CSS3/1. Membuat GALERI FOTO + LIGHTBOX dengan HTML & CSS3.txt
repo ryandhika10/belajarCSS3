@@ -1,0 +1,314 @@
+ >> GALERI FOTO + LIGHTBOX PART 1 <<
+
+
+ >> Membuat galeri foto yg di dlmnya menerapkan fitur lightbox
+
+ >> Lightbox = Galeri yg dibuat menggunakan Javascript, yg dibuat oleh Lokesh 
+	       Dhakar
+
+ >> Galerinya terdiri dari serangkaian thumbnail yg ketika di klik, akan tampil 
+    gambar dgn ukuran besar
+
+ >> Lightbox yg dibuat murni menggunakan HTML + CSS
+
+ >> Yg perlu dipersiapkan : 
+
+    1. Asset : Beberapa gambar dgn 2 ukuran, full size dan thumbnails dgn 
+	       ukuran yg sama. Font dgn nama BEBAS NEUE dgn tipe font .woff
+
+    2. Struktur Folder : Buat folder dgn nama gallery yg di dlmnya dibuat 
+			 beberapa folder, yaitu css, img dan fonts. Di dlm 
+			 folder img buat folder full dan thumbs
+
+ >> Penerapannya : 
+
+    1. Buat file dgn ekstensi .html yg di dlmnya terdapat struktur html 
+       sederhana, dgn konten pada tag title "Gallery"
+
+    2. Di dlm tag body, buat tag h1 utk memberi judul dari gallery, isinya 
+       sesuaikan dgn tema foto yg kita miliki
+
+       Contoh : 
+
+		<h1>The Family</h1>
+
+    3. Di bawah tag h1, buat tag div dgn class container yg di dlmnya ada tag 
+       ul dgn class gallery yg di dlmnya terdapat tag li yg menyimpan tag img 
+       dan span, buat berulang dari tag li, sesuai jumlah dari gambar yg kita 
+       miliki utk membuat gambar thumbnail
+
+       Contoh : 
+
+		<div class="container">
+			<ul class="gallery">
+				<li>
+					<img src="img/thumbs/Gambar1.jpeg" 						alt="Sama Kakak Via" />
+					<span>Sama Kakak Via</span>
+				</li>
+
+    4. Di bawah tag title, buat tag link. Sebelum menghubungkan file html dgn 
+       css, buat 2 file dgn ekstensi .css, dgn nama reset.css dan style.css, 
+       lalu hubungkan dgn membuat tag link
+
+       Contoh : 
+
+		<link rel="stylesheet" href="css/reset.css" />
+		<link rel="stylesheet" href="css/style.css" />
+
+    5. Pada file style.css, buat tag komentar dgn nama Font, di bawahnya buat 
+       property font-face yg di dlmnya ada property font-family diisi nama font 
+       yg ingin kita gunakan, property src dgn url yg diarahkan ke file font yg 
+       kita gunakan, lalu format() utk tipe format dari font
+
+       Contoh : 
+
+	/* Font */
+
+	@font-face {
+		font-family: "BebasNeue";
+		src: url(../fonts/BebasNeue-Regular.woff) format("woff");
+	}
+
+    6. Buat tag komentar dgn nama Style Utama, di bawahnya buat selector body 
+       yg di dlmnya terdapat property font utk shorthand, atur ukuran font dan 
+       jarak antarfont 2 kali dari ukuran font, contoh 18px/36px, lalu gunakan 
+       font yg kita buat sebelumnya, kalau tidak ada gunakan font dgn nama 
+       Arial Narrow, kalau tidak ada gunakan font arial, kalau tidak ada juga 
+       gunakan font sans-serif. Tambahkan juga property warna background dgn 
+       hexa #ddd
+
+       Contoh : 
+
+	body {
+		font: 18px/36px "BebasNeue", "Arial Narrow", arial, sans-serif;
+		background-color: #ddd;
+	}
+
+    7. Buat selector h1 yg di dlmnya terdapat property ukuran font sebesar 
+       80px, tambahkan property margin dgn atas-bawah 50px, kiri-kanan 0px, 
+       lalu property yg mengarahkan teks ke tengah, beri bayangan pada teks dgn 
+       arah kanan dan bawah sebesar 1px dan 1px, blur sebesar 1 px
+
+       Contoh : 
+
+	h1 {
+		font-size: 80px;
+		text-align: center;
+		margin: 50px 0px;
+		text-shadow: 1px 1px 1px white;
+	}
+
+    8. Buat selector container dgn lebar 600px warna background putih dan 
+       gunakan margin utk memberikan posisi di tengah dan padding sebesar 30px
+       dan property box-shadow utk memberi bayangan dgn x-offset dan y-offset 
+       sebesar 0px, blur 3px, spread sebesar 3px dan rgba() utk memberi 
+       bayangan hitam, value di dlmnya diberi nilai 0 semua, utk alpha beri 
+       transparansi 0.3. Berikan property utk membuat kotak dari container 
+       tidak lancip sebesar 5px
+
+       Contoh : 
+
+	.container {
+		width: 600px;
+		background-color: white;
+		margin: auto;
+		padding: 30px;
+		box-shadow: 0 0 3px 3px rgba(0, 0, 0, 0.3);
+		border-radius: 5px;
+	}
+
+    9. Pada file html, bungkus tag img dan span di tag li ke dlm tag a
+
+       Contoh : 
+
+	<li>
+		<a href="">
+			<img src="img/thumbs/Gambar1.jpeg" alt="Sama Kakak Via" 
+			/>
+			<span>Sama Kakak Via</span>
+		</a>
+	</li>
+
+    10. Buat style pada li dgn selector .gallery li, lalu tambahkan property 
+	lebar dan tinggi sebesar 120px dan border-radius 50%, lalu property 
+	overflow dgn value hidden utk membuat gambar yg keluar dari elemen li, 
+	disembunyikan. Hasilnya, gambar akan menjadi lingkaran, namun 
+	tulisannya juga hilang. Tambahkan property border sebesar 5px solid dgn 
+	warna hexa #666
+
+	Contoh : 
+
+	.gallery li {
+		width: 120px;
+		height: 120px;
+		border-radius: 50%;
+		overflow: hidden;
+		border: 5px solid #666;
+	}
+
+    11. Selanjutnya, Kita buat gambar berada di samping, dgn menggunakan float. 
+	Jika kita berikan float maka container akan collapse, di akhir tag li 
+	kita butuh clear dlu utk memperbaikinya dgn membuat tag div dgn class 
+	clear dibuat setelah tag li paling akhir, lalu gunakan selector .clear, 
+	tambahkan property clear dgn value both utk menghapus float
+
+	Contoh : 
+
+	.gallery li {
+		width: 120px;
+		height: 120px;
+		border-radius: 50%;
+		overflow: hidden;
+		border: 5px solid #666;
+		float: left;
+	}
+
+	.clear {
+		clear: both;
+	}
+
+	Html :
+
+		</li>
+		<div class="clear"></div>
+
+    12. Tambahkan margin kanan sebesar 20px pada selector .gallery li
+	
+	Contoh : 
+
+	.gallery li {
+		width: 120px;
+		height: 120px;
+		border-radius: 50%;
+		overflow: hidden;
+		border: 5px solid #666;
+		float: left;
+		margin-right: 20px;
+	}
+
+    13. Selanjutnya, kita akan buat, ketika kursor berada di gambar, maka akan 
+	ada lapisan transparan berwarna abu-abu, lalu di tengahnya ada 
+	tulisannya. Gunakan selector .gallery li span utk melakukan styling 
+	pada span. Lalu buat display block agar kita bisa mengatur lebar dan 
+	tingginya, atur lebar dan tingginya 120px warna background rgba dgn 
+	warna abu-abu sedikit putih dgn value 200 dan transparansi sebesar 0.5.
+	Hasilnya, apabila tidak terlihat kita bisa matikan sementara overflow
+
+	.gallery li span {
+		display: block;
+		width: 120px;
+		height: 120px;
+		background-color: rgba(200, 200, 200, 0.5);
+	}
+
+    14. Jadi nanti kita akan bikin li bikin bulat, gambarnya bikin bulat, span 
+	dibikin bulat dan berada di dalam gambarnya. Buat selector .gallery li 
+	img, .gallery li span dan .gallery li utk membuat semua elemen menjadi 
+	bulat. Tambahkan property border-radius sebesar 50%, hapus property 
+	border-radius pada selector li
+
+	Contoh : 
+
+	.gallery li,
+	.gallery li span,
+	.gallery li img {
+		border-radius: 50%;
+	}
+
+    15. Pindahkan tulisan agar berada di atas dgn tambahkan property position 
+	absolute pada selector span, dan tambahkan property position relative 
+	pada selector li nya, lalu pada selector span, tambahkan property top 	dgn value 0. Hasilnya gambar kita tertutupi teks dan lapisan transparan
+
+	Contoh : 
+
+	.gallery li {
+		width: 120px;
+		height: 120px;
+		/* overflow: hidden; */
+		border: 5px solid #666;
+		float: left;
+		margin-right: 20px;
+		position: relative;
+	}
+
+	.gallery li span {
+		display: block;
+		width: 120px;
+		height: 120px;
+		background-color: rgba(200, 200, 200, 0.5);
+		position: absolute;
+		top: 0px;
+	}
+
+    16. Buat posisi teks berada di tengah secara horizontal, lalu buat tinggi 
+	baris dgn ukuran sama seperti tinggi span agar teks berada di tengah 
+	secara vertikal. Tambahkan property warna dgn value hexa #333 dan text-
+	shadow dgn value 1px 1px 1px dan warna dgn hexa #ddd
+
+	Contoh : 
+
+	.gallery li span {
+		display: block;
+		width: 120px;
+		height: 120px;
+		background-color: rgba(200, 200, 200, 0.5);
+		position: absolute;
+		top: 0px;
+		text-align: center;
+		line-height: 120px;
+		color: #333;
+		text-shadow: 1px 1px 1px #ddd;
+	}
+
+    17. Sekarang kita ingin teks muncul hanya ketika kursor berada di gambar, 
+	maka kita bisa tambah property opacity dgn value 0, lalu buat selector 
+	a dgn hover span di dlmnya, opacitynya menjadi 1
+
+	Contoh : 
+
+	.gallery li span {
+		display: block;
+		width: 120px;
+		height: 120px;
+		background-color: rgba(200, 200, 200, 0.5);
+		position: absolute;
+		top: 0px;
+		text-align: center;
+		line-height: 120px;
+		color: #333;
+		text-shadow: 1px 1px 1px #ddd;
+		opacity: 0;
+	}
+
+	.gallery li a:hover span {
+		opacity: 1;
+	}
+
+    18. Beri property transition pada selector span sebelum di hover dgn value 
+	0.3s dan property transform dgn scale() sebesar 0 dan rotate() sebesar 
+	0. Pada span yg di hover, kita tambahkan property transform dgn value 
+	scale() sebesar 1, namun kita beri rotasi(360deg) utk membuat animasi 
+	berputar dari kecil ke besar
+
+	Contoh : 
+
+	.gallery li span {
+		display: block;
+		width: 120px;
+		height: 120px;
+		background-color: rgba(200, 200, 200, 0.5);
+		position: absolute;
+		top: 0px;
+		text-align: center;
+		line-height: 120px;
+		color: #333;
+		text-shadow: 1px 1px 1px #ddd;
+		opacity: 0;
+		transition: 0.3s;
+		transform: scale(0) rotate(0);
+	}
+
+	.gallery li a:hover span {
+		opacity: 1;
+		transform: scale(1) rotate(360deg);
+	}

@@ -1,0 +1,210 @@
+ >> PROPERTY FILTER <<
+
+
+ >> filter = Property CSS3 yg digunakan utk memberikan efek visual pada gambar, 
+	     background atau border
+
+	     => Penulisannya : filter: <tipe-filter>;
+
+ >> Tipe filter : 
+
+    1. blur() = Digunakan utk memberi efek gambar blur, semakin besar valuenya, 
+		semakin blur gambarnya
+       => Value : px
+
+    2. brightness() = Digunakan utk memberi efek kecerahan pada gambar, semakin 
+		      besar valuenya, semakin terang gambarnya
+       => Value : angka | %, 100%=1 (Default), bisa > 100% dan < 100%
+
+    3. contrast() = Menambahkan kontras pada gambar
+       => Value : angka | %, 100%=1 (Default), bisa > 100% dan < 100%
+
+    4. saturate() = Mengatur saturasi pada gambar, semakin besar maka gambar 
+		    semakin berwarna
+       => Value : angka | %, 100%=1 (Default), bisa > 100% dan < 100%
+
+    5. grayscale() = Mengubah warna gambar menjadi abu2, kebalikan dari 
+		     saturate
+       => Value : angka | %, 0%=0 (Default), maksimal value 100%
+
+    6. sepia() = Mengubah warna gambar menjadi abu kekuningan
+       => Value : angka | %, 0%=0 (Default), maksimal value 100%
+
+    7. hue-rotate() = Mengubah warna gambar dgn merotasi roda warna(hue)
+       => Value : deg, 0deg dan 360deg (Default), maksimal value 360deg
+
+    8. invert() = Membuat gambar seperti negative film
+       => Value : angka | %, 0%=0 (Default), maksimal value 100% 
+
+    9. opacity() = Membuat gambar menjadi transparan, semakin besar valuenya, 
+		   semakin transparan
+       => Value : angka | %, 100%=1 (Default), maksimal value 100%
+
+    10. drop-shadow() = Membuat bayang pada pinggir gambar sama seperti box-
+			shadow. Bisa membuat bayang pada teks dan gambar yg 
+			berupa tulisan
+       => Value : sama seperti box-shadow -> x-offset, y-offset, blur dan 
+					     warnanya
+
+ >> Penerapannya : 
+
+    1. Buat folder yg digunakan utk menyimpan project kita, di dlmnya buat file 
+       dgn ekstensi .html dan gambar yg nantinya akan kita gunakan
+
+    2. Di dlm file html, buat struktur html sederhana, di dlm tag head ada tag 
+       style dan di dlm tag body ada tag img yg urlnya mengarah ke file gambar 
+       kita dan atribut altnya adalah nama lengkap kita, bikin atribut lebar 
+       dan tinggi apabila gambar terlalu besar
+
+    3. Di dlm tag style, buat selector body dgn property arah teks berada di 
+       tengah
+
+       Contoh :
+
+		<style>
+			body {
+				text-align: center;
+			}
+		</style>
+	</head>
+	<body>
+		<img src="Foto1.jpeg" height="200px" width="175px" alt="Ryan Dhika
+		Permana"">
+	</body>
+
+    4. Buat selector img yg di dlmnya terdapat property filter, utk valuenya yg 
+       sudah dijelaskan sebelumnya
+
+    5. Utk blur, gunakan value blur(), yg di dlmnya diisi nilai berupa 
+       pixel(px). Pada photoshop, efek blur yg sama adalah efek Gaussian Blur 
+       dgn value radius nilai pixel, semakin besar valuenya, maka gambar 
+       semakin tidak jelas
+
+       Contoh : 
+
+			img {
+				filter: blur(10px);
+			}
+
+       => Hasilnya, gambar akan blur sebesar 10px, jika tdk ada perubahan, maka 
+	  kita harus menggunkan vendor prefix sebelum menuliskan propertynya
+
+    6. Utk brightness, gunakan value brightness(), yg di dlmnya diisi nilai 
+       berupa angka atau %. Nilai defaultnya adalah 100% atau 1
+
+       Contoh : 
+
+			img {
+				filter: brightness(120%);
+			}
+
+    7. Utk contrast, gunakan value contrast(), yg di dlmnya diisi nilai berupa 
+       angka atau %. Nilai defaultnya adalah 100% atau 1
+
+       Contoh : 
+
+			img {
+				filter: contrast(150%);
+			}
+
+    8. Utk saturate, gunakan value saturate(), yg di dlmnya diisi nilai berupa 
+       angka atau %. Semakin besar valuenya, maka gambar akan semakin berwarna. 
+       Semakin kecil, maka gambarnya semakin abu2. Nilai defaultnya adalah 100% 
+       atau 1
+
+       Contoh :
+
+			img {
+				filter: saturate(150%);
+			}
+
+    9. Utk grayscale, kebalikan dari saturate, defaultnya adalah 0% atau 0. 
+       Maksimal valuenya adalah 100% atau 1
+
+       Contoh : 
+
+			img {
+				filter: grayscale(50%);
+			}
+
+    10. Utk sepia, memberikan efek merubah warna gambar menjadi seperti warna 
+	kuning, defaultnya adalah 0% atau 0. Maksimal valuenya 100% atau 1
+
+        Contoh : 
+
+			img {
+				filter: sepia(100%);
+			}
+
+    11. Utk hue-rotate, memberikan efek merotasi warna pada gambar, seperti di 
+	photoshop bagian image>adjustment>hue/saturation, kita bisa atur huenya
+
+	Contoh : 
+
+			img {
+				filter: hue-rotate(100deg);
+			}
+
+    12. Utk invert, memberikan efek membuat gambar seperti negative film, 
+	defaultnya 0, maksimal 100%
+
+	Contoh : 
+
+			img {
+				filter: invert(100%);
+			}
+
+    13. Utk value opacity() dan drop-shadow() pada property filter, keduanya 
+	ada property cssnya sendiri, sama halnya seperti property opacity dan 
+	drop-shadow
+
+    14. Opacity dgn property filter, di belakang layar, melakukan operasi 
+	matematik agar gambarnya bisa berubah, dgn property filter, perubahan 
+	tersebut menggunakan hardware kita, sedangkan property opacity, box-
+	shadow dan drop-shadow murni menggunakan kemampuan browser
+
+    15. Penggunaan property filter utk opacity dan drop-shadow jauh lebih cepat 
+	prosesnya dibanding menggunakan property opacity dan box-shadow
+
+    16. Kekurangannya, saat ini masih eksperimental, jadi kemungkinan ada 
+	browser yg belum support
+
+    17. Utk drop-shadow, nilainya sama seperti box-shadow, yaitu x-offset, y-
+	offset, blur dan warnanya
+
+	Contoh : 
+
+			img {
+				filter: drop-shadow(5px 5px 10px black);
+			}
+
+    18. Bedanya value drop-shadow pada filter dgn property box-shadow, dgn 
+	menggunakan drop-shadow, kita bisa mengimplementasikan box-shadow dan 
+	text-shadow tanpa merubah valuenya
+
+	Contoh : 
+
+			h1 {
+				filter: drop-shadow(5px 5px 10px black);
+			}
+
+    19. Bahkan dgn menggunakan value drop-shadow pada filter, kita bisa membuat 
+	bayangan pada gambar berupa tulisan/teks, jadi bukan kotak pinggirnya 	yg dibuat bayangan, melainkan setiap huruf pada gambar akan dibuat 
+	bayang
+
+ >> Efek value pada filter bisa kita tumpuk penggunaannya
+
+    Contoh : 
+
+			img {
+				filter: drop-shadow(5px 5px 0 black) 					grayscale(50%);
+			}
+
+ >> Kalau kita ingin secara interaktif memberikan efek pada gambar, daripada 
+    mengira-ngira valuenya, kita bisa kunjungi website : https://html5-
+    demos.appspot.com/static/css/filters/index.html (UDAH GAK ADA)
+
+ >> Web alternative mirip seperti link tadi : https://cssfilter.com/
+
+ >> Bisa memberikan efek gambar blur dan warna abu2, namun ketika di hover, 
+    gambar jelas serta memberikan efek transisi agar lebih halus perubahannya

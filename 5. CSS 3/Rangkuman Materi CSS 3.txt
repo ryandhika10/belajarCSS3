@@ -1,0 +1,849 @@
+ >> PENGENALAN CSS3 <<
+
+
+ >> Web utk melihat semua property CSS3 : 
+    https://www.quackit.com/css/css3/properties/
+
+ >> Vendor Prefixes = Utk menjalankan property CSS3 yg hanya jln di browser 
+		      tertentu
+
+ >> Vendor Prefixes -> -webkit-, -moz-, -ie-, -o-
+
+
+ >> PROPERTY CSS3 BORDER RADIUS << 
+
+
+ >> Border-radius = Membuat kotak di elemen memiliki ujung yg tumpul
+		    Value -> px, % (max 50%) 
+			  -> Semakin besar valuenya, semakin tumpul kotaknya 
+			     (jadi lingkaran/elipse apabila lebar dan tinggi 
+			     tdk sama)
+
+ >> Ketika suatu elemen ada konten berupa teks di dlmnya diberi property 
+    border-radius, maka teks akan keluar apabila posisi teks berada di sudut 
+    pinggir elemen
+
+ >> Property utk memberi tumpul pada satu sudut saja : 
+
+    1. border-top-left-radius
+
+    2. border-top-right-radius
+
+    3. border-bottom-left-radius
+
+    4. border-bottom-right-radius
+
+    5. border-radius dgn 4 parameter mulai dari atas kiri searah jarum jam
+
+       Contoh : border-radius: 0(atas kiri) 40px(atas kanan) 50%(bawah kanan) 
+		0(bawah kiri)
+
+ >> Jika elemen memiliki background-image, maka gambar akan berada di balik 
+    border-radius, mirip seperti frame foto
+
+ >> Jika gambar dari elemen tag img diberi border, maka gambar akan keluar dari 
+    border-radius, solusinya adalah dgn memberi property overflow yg valuenya 
+    hidden. Apapun yg keluar dari border-radius, langsung disembunyikan
+
+
+ >> OPACITY <<
+
+
+ >> Opacity = Memberi transparansi elemen HTML
+	      Value -> 0-1, 0%-100%
+	      -> Semakin kecil valuenya, akan semakin transparan (0 akan 
+		 membuat elemen tidak nampak/hilang)
+
+ >> Jika ada elemen di dlm elemen yg memiliki property opacity, maka elemen 
+    tersebut akan menjadi transparan dgn value opacity pembungkusnya
+
+ >> Jika elemen di dlm elemen pembungkus yg memiliki opacity, lebih besar 
+    ukurannya hingga keluar dari elemen pembungkus, elemen yg keluar akan 
+    transparan, namun tdk ada perbedaan transparansi dgn elemen pembungkusnya
+
+ >> Jika elemen di dalam memiliki transparansi, dan elemen pembungkus juga 
+    punya (Opacity di dlm opacity), maka value dari opacity elemen yg di dlm 
+    lebih transparan.
+
+ >> Misal value opacity kedua elemen adalah 0.5, maka elemen di dlm memiliki 
+    value opacity 0.25, bukan 0.5. Karena value elemen di dlm adalah 
+    0.5/setengah dari value elemen pembungkus 0.5
+
+ >> Kita tdk bisa membuat elemen child tdk transparan, ketika elemen pembungkus 
+    transparan
+
+
+ >> RGBa & HSLa PADA CSS3 <<
+
+
+ >> rgba() = red, green, blue, alpha. Utk memberi warna dgn kadar merah, biru 
+	     dan hijau beserta transparansinya
+             Value -> 0-255(rgb), 0-1(a)
+
+ >> Solusi agar elemen child tdk terpengaruh transparansi elemen pembungkusnya 
+    adalah dgn menggunakan property rgba(), karena yg kita beri transparansi 
+    adalah warnanya, bukan elemennya
+
+ >> hsla() = hue, saturation, lightness, alpha
+	     - Hue = Roda warna => Value = 0-360
+
+	     - Saturation = Saturasi => Value = 0-100%
+	       => Semakin tinggi nilainya, semakin murni warnanya (mengarah ke 
+		  putih)
+
+	     - Lightness = Kecerahan => Value = 0-100%
+	       => Semakin tinggi valuenya, semakint terang warnanya
+
+ >> BOX SHADOW 1<<
+
+
+ >> box-shadow = Memberikan bayangan pada elemen
+
+ >> Property box-shadow dan beberapa parameter wajibnya :
+
+    1. <x-offset> = Mengatur jarak bayangan thd sumbu horizontal => Value = px
+		    => Jika negatif, maka bayangan akan berada di kiri
+
+    2. <y-offset> = Mengatur jarak bayangan thd sumbu vertikal => Value = px 
+		    => Jika negatif, maka bayangan akan berada di atas
+
+    3. <blur> = Seberapa besar blur yg ingin diberikan => Value = px
+
+    4. <color> = Memberi warna pada bayangan => Value = Hexa, nama warna, 
+							rgba()
+
+ >> Parameter opsional box-shadow : 
+
+    1. <inset>
+
+    2. <spread>
+
+ >> Penulisan box-shadow : 
+
+    -> box-shadow: <inset> <x-offset> <y-offset> <blur> <spread> <color>
+
+
+ >> BOX SHADOW 2 << 
+
+
+ >> spread = Ukuran bayangan => Value = px (bisa bernilai negatif)
+	     => Semakin besar nilainya, semakin lebar bayangannya
+
+ >> Jika elemen memiliki box-shadow yg ada parameter blur dan spread, maka 
+    bayangan akan meluas sebesar value dari spread dan setelahnya bayangan akan 
+    blur sebesar value dari blur
+
+ >> Jika x, y dan blur bernilai 0, namun spread memiliki nilai, maka elemen 
+    akan seolah memiliki border
+
+ >> inset = Membuat bayangan berada dlm elemen, bukan di luar elemen 
+	    => Value -> inset
+
+ >> box-shadow multiple shadow : 
+
+    => Kita bisa memberikan lebih dari 1 shadow di dlm sebuah elemen. Juga kita 
+       bisa memberikan multiple border, padahal border yg dimaksud adalah box-
+       shadow, yg tdk memiliki blur/value blurnya 0
+
+
+ >> TEXT SHADOW << 
+
+
+ >> text-shadow = Memberi bayangan pada teks
+		  -> Value = <x-offset(px)> <y-offset(px)> <blur(px)> 
+			     <color(text, rgba(), hexa/#)>
+
+ >> Fungsi tiap parameter sama dgn box-shadow
+
+ >> Kita bisa memberi multiple-shadow pada text-shadow dgn memberi koma(,) lalu 
+    tambahkan lagi parameter yg sama
+
+ >> Penerapan multiple shadow pada text-shadow : 
+
+    => Membuat teks terlihat 3 dimensi : 
+
+		color: white;
+		text-shadow: 0 2px 1px black;
+
+
+ >> LINEAR GRADIENT <<
+
+
+ >> linear-gradient() = Memberi gradasi warna secara garis lurus
+			=> Value -> 2 parameter atau lebih (nama warna, hexa, 
+				    rgba())
+
+			=> Arah gradasi defaultnya atas ke bawah
+
+			=> Bobot warna defaultnya 50% : 50%
+
+ >> linear-gradient() bukan property CSS3, melainkan parameter/value dari 
+    background-image
+
+ >> Kita bisa menggunakan property background-color dan background image secara 
+    bersamaan dgn menggunakan value/parameter linear-gradient() pada 
+    background-image
+
+ >> Syntax sederhana : 
+
+    => background-image: linear-gradient(<warna awal>, <warna akhir>);
+
+ >> Kita bisa ganti property background-image jadi background saja
+
+ >> Multiple color :
+
+    => background: linear-gradient(<warna-1>, <warna-2>, ..., <warna-n>);
+
+ >> Syntax lengkap : 
+
+    => background: linear-gradient(<sudut> | <arah>, <warna awal>, <warna 
+		   akhir>);
+
+ 		   => Value sudut = deg(degree), bisa diberi value negatif
+
+ 		   => Value arah = to bottom, to top, to left, to right, to 
+				   left top, to left bottom, to right top, to 
+				   right bottom
+
+ >> color stop = Memberi bobot warna yg berbeda, bukan 50%-50% secara default
+
+    => background: linear-gradient(to right, red 63%, green 80%);
+
+    => Dari 0-63% warna merah dan dari 80%-100% warna hijau, di antara 63%-80% 
+       warna tersebut adalah gradient nya
+
+
+ >> RADIAL GRADIENT << 
+
+
+ >> radial-gradient() = Memberi gradasi warna secara melingkar
+			=> Value -> 2 parameter atau lebih (nama warna, hexa, 
+				    rgba())
+
+       			=> Warna awal akan menjadi pusat lingkarannya
+
+ >> Syntax sederhana : 
+
+    => background-image: radial-gradient(<warna awal>, <warna akhir>);
+
+ >> Multiple color : 
+
+    => background-image: radial-gradient(<warna-1>, <warna-2>, ..., <warna-n>);
+
+ >> Color stop : 
+
+    => background-image: radial-gradient(red 10%, green 20%, blue 80%);
+
+ >> Syntax lengkap : 
+
+    => radial-gradient(<tipe> <jangkauan> at <posisi-y> <posisi-x>, <warna-1>, 
+       <warna-2>, ..., <warna-n>);
+
+       -> tipe memiliki 2 value : ellipse(default) dan circle
+
+       -> jangkauan = Jangkauan dari gradasi warna, jarak dari pusat gradient 
+		      ke sisi terluarnya
+
+       -> posisi-y dan posisi-x = Posisi pusat dari gradasinya
+	  
+ >> Value parameter jangkauan : 
+
+    1. closest-corner = jarak gradasi dari pusat gradien ke sudut terdekat 
+			elemen
+
+    2. closest-side = jarak gradasi dari pusat gradient ke sisi terdekat elemen
+
+    3. farthest-corner = jarak gradasi dari pusat gradient ke sudut terjauh 
+			 elemen
+
+    4. farthest-side = jarak gradasi dari pusat gradient ke sisi terjauh elemen
+
+ >> Posisi-x = Memindahkan posisi pusat secara horizontal
+	       -> Value = left, center, right, px(bisa negatif)
+
+ >> Posisi-y = Memindahkan posisi pusat secara vertikal
+	       -> Value = top, center, bottom, px(bisa negatif)
+
+
+ >> FONT FACE <<
+
+
+ >> @font-face = Utk mengelola font pada CSS, karena font-family memiliki 
+		 keterbatasan
+
+ >> Penerapan penggunaan font : 
+
+    1. Menggunakan property font-family
+
+    2. Mengambil dari google font dgn mengembednya melalui CSS
+
+    3. Menggunakan @font-face
+
+ >> Hati2 dlm memilih font(legalitas), dan usahakan font yg kita gunakan sudah 
+    ada di sistem operasi client/user
+
+ >> Cara penggunaan font dgn menggunakan Google Fonts : 
+
+    1. Kunjungi website : https://fonts.google.com/
+
+    2. Cari font yg diinginkan, klik fontnya
+
+    3. Klik tombol get font
+
+    4. Pilih mau embed code atau download fontnya
+
+    5. Jika pilih download all, maka font akan disimpan di komputer kita
+
+    6. Jika pilih embed code, maka ada 2 cara penempatan font di dlm CSS, yaitu 
+       melalui <link> dan @import
+
+    7. Tinggal klik copy code melalui <link>, lalu pindahkan ke HTML kita
+
+    8. Gunakan font dgn menambah value di awal pada property font-family
+
+ >> Pastikan gunakan internet utk menerapkan teknik ini
+
+ >> Gunakan @font-face apabila google font tdk cukup utk memenuhi kebutuhan 
+    font
+
+ >> Syntax Lengkap : 
+
+    @font-face{
+    font-family: 'namaFontBaru';
+    src: url('lokasi/file/fontBaru.eot');
+    src: url('lokasi/file/fontBaru.eot?#iefix') format('embedded-opentype'), 
+        url('lokasi/file/fontBaru.woff2') format('woff2'), 
+        url('lokasi/file/fontBaru.woff') format('woff'), 
+        url('lokasi/file/fontBaru.ttf') format('truetype'), 
+        url('lokasi/file/fontBaru.svg#svgFontName') format('svg')
+}
+
+ >> Sebelum syntax di atas diterapkan, pastikan memiliki font ada dlm folder 
+    project yg akan digunakan utk menerapkan @font-face
+
+ >> src pertama, digunakan jika font berada di 1 folder, jgn lupa sertakan 
+    ekstensi filenya
+
+ >> src kedua, digunakan ketika tipe ekstensi dari font yg kita miliki ada 
+    banyak
+
+ >> Kalau cuma ada 1 file saja, gunakan src pertama dan sesuaikan tipe ekstensi 
+    file nya
+
+ >> Tipe ekstensi font : 
+    
+    1. eot = embedded-opentype, tipe dari font
+
+    2. woff = web open file format
+
+    3. ttf = truetype font, standard yg biasa kita pakai
+
+ >> Alasan kenapa ada beberapa ekstensi utk font, karena ketika tipe font 
+    berbeda, dukungan web browser thd font juga berbeda
+
+ >> Font dgn format TTF/OTF dan WOFF didukung semua browser
+
+ >> Kekurangan TTF/OTF dibanding WOFF : 
+
+    1. TTF/OTF bukan spesifik digunakan utk website
+
+    2. Ketika font dgn ekstensi ini ditampilkan, prosesnya akan jauh lebih 
+       lambat dibanding WOFF
+
+    3. WOFF ekstensinya khusus utk web
+
+ >> Layanan mendownload font : 
+
+    1. https://fonts.google.com/
+
+    2. https://www.fontsquirrel.com/ (RADA ERROR)
+
+    3. https://www.fontspring.com/?srsltid=AfmBOoqzYA1nnhz5iXIeyH3QvpbeQt5BMOUfS3DJWX94W3wMGv-2_SlN
+
+    4. https://typenetwork.com/
+
+ >> Font di website di atas ada yg berbayar dan yg gratis, perhatikan juga 
+    licensenya apakah boleh atau tidak digunakan di website
+
+ >> Web font yg biasa digunakan = https://www.fontsquirrel.com/
+
+ >> Penggunaan web : https://www.fontsquirrel.com/ : 
+
+    1. Ada 4 icon berada di kiri bawah font yg mau kita pilih, warna hitam 
+       support, putih tidak
+
+    2. Jika icon di klik akan muncul penjelasan boleh atau tdk menggunakan font 
+       secara komersial
+
+    3. Icon pertama apabila berwarna hitam, menandakan kita bisa menggunakan 
+       font di dokumen, icon kedua di website dgn @font-face, icon ketiga di e-
+       book/pdf dan icon keempat, font bisa digunakan di aplikasi mobile
+
+    4. Pilih font dgn klik bagian kanan bawah font yg berwarna biru utk 
+       download
+
+    5. Ekstrak ekstensi zipnya agar menjadi folder, jika sudah akan nampak di 
+       dlmnya ada font serta license
+
+    6. Copas file font ke dlm folder project, pada CSS buat property @font-face 
+       yg di dlmnya beri property font-family dgn valuenya berupa nama bebas yg 
+       nantinya nama fontnya akan disarankan oleh file font
+
+       Contoh : 
+
+		@font-face {
+			font-family: "Alex Brush";
+			src: url("AlexBrush-Regular.ttf") 					format("truetype");
+		}
+
+
+ >> WEB FONT GENERATOR <<
+
+
+ >> Pada web fontsquirrel, ada beberapa font yg memberikan syntax @font-
+    face ketika kita mendownload, jadi gk perlu ketik manual
+
+ >> Cara mencarinya, ada pada menu webfont kit yg berada di navbar setelah kita 
+    klik fontnya, bukan klik yg warna biru. Pilih format font dgn klik 1 atau 
+    lebih checkbox, lalu klik tombol "Download @font-face Kit"
+
+ >> WOFF = Ekstensi file font yg paling bagus digunakan di web
+
+ >> Setelah mendownload dan mengekstrak zip, maka ada file font dan file dgn 
+    ekstensi .css, pindahkan file font ke project kita dan buka file CSS itu, 
+    lalu copas isi syntax di dlmnya, pindahkan ke CSS project kita. Utk
+    menggunakannya kita tambahkan value paling depan, nama dari font di font-
+    face ke property font-family
+
+ >> Jika file font yg kita download ekstensinya TTF/OTF, bisa kita ubah jadi 
+    WOFF dgn menggunakan Web Font Generator, fitur yg disediakan web 
+    fontsquirrel
+
+ >> Tahapan menggunakan Web Font Generator : 
+
+    1. Pilih opsi webfont generator di navbar, setelahnya kita upload font dgn 
+       ekstensi ttf/otf yg berlisensi utk web
+
+    2. Pilih opsi sesuai yg diinginkan, sarannya kita pilih yg optimal
+
+    3. Jika sudah pilih opsi, kita bisa centang checkbox agreement, setelah itu 
+       klik download your kit
+
+    4. Hasilnya akan muncul ekstensi zip yg di dlmnya ada file font dgn 
+       ekstensi woff dan woff2, tinggal copas dan pindahkan ke folder kodingan 
+       kita
+
+    5. Dan di folder tersebut sdh dibuatkan syntax css nya, kita buka filenya, 
+       lalu copas syntaxnya khusus utk yg ekstensinya woff dan woff2. Jadi 
+       sekarang ada 2 selector @font-face di html kita
+
+
+ >> VENDOR PREFIX <<
+
+
+ >> Vendor Prefixes = Utk membuat property CSS3 compatible di semua browser
+
+ >> Contoh penggunaan vendor prefixes : 
+
+    -webkit-<property-css3> => -webkit- (Chrome, Safari, Opera versi terbaru)
+
+    -moz-<property-css3> => -moz- (Firefox)
+
+    -ms-<property-css3> => -ms- (Internet Explorer)
+
+    -o-<property-css3> => -o- (Opera versi terdahulu)
+
+ >> Web utk mengetahui property butuh vendor prefixes atau tdk : 
+
+    1. https://caniuse.com/
+       => Jika warna merah tdk dpt diakses, kuning tdk di support 	  
+	  secara penuh, hijau di support, kalau hijau namun di kanan atasnya 
+	  ada warna kuning, berarti property di support namun dgn prefixes
+
+    2. https://pleeease.iamvdo.me/play/
+       => Tinggal tulis syntax, lalu websitenya akan menerjemahkan apakah butuh 
+	  vendor prefix atau tdk
+
+    3. Kita gunakan plugin emmet, dgn menginstallnya di kode editor kita 
+       (Tutorial Visual Studio Code/Sublime Text), secara otomatis vendor 
+       prefix akan ditambahkan
+
+
+ >> FILTER <<
+
+
+ >> filter = Utk memberi efek visual pada gambar, background atau border
+	     => Penulisan -> filter: <tipe-filter>;
+
+ >> Tipe filter : 
+
+    1. blur() = Utk memberi efek gambar blur, semakin besar valuenya, semakin 
+		blur gambarnya
+       => Value : px
+
+    2. brightness() = Utk memberi efek kecerahan pada gambar, semakin besar 
+		      valuenya, semakin terang gambarnya
+       => Value : angka | %, 100%=1 (Default), bisa > 100% dan < 100%
+
+    3. contrast() = Menambahkan kontras pada gambar
+       => Value : angka | %, 100%=1 (Default), bisa > 100% dan < 100%
+
+    4. saturate() = Mengatur saturasi pada gambar, semakin besar maka gambar 
+		    semakin berwarna
+       => Value : angka | %, 100%=1 (Default), bisa > 100% dan < 100%
+
+    5. grayscale() = Mengubah warna gambar menjadi abu2, kebalikan dari 
+		     saturate
+       => Value : angka | %, 0%=0 (Default), maksimal value 100%
+
+    6. sepia() = Mengubah warna gambar menjadi abu kekuningan
+       => Value : angka | %, 0%=0 (Default), maksimal value 100%
+
+    7. hue-rotate() = Mengubah warna gambar dgn merotasi roda warna(hue)
+       => Value : deg, 0deg dan 360deg (Default), maksimal value 360deg
+
+    8. invert() = Membuat gambar seperti negative film
+       => Value : angka | %, 0%=0 (Default), maksimal value 100% 
+
+    9. opacity() = Membuat gambar menjadi transparan, semakin besar valuenya, 
+		   semakin transparan
+       => Value : angka | %, 100%=1 (Default), maksimal value 100%
+
+    10. drop-shadow() = Membuat bayang pada pinggir gambar sama seperti box-
+			shadow. Bisa membuat bayang pada teks dan gambar yg 
+			berupa tulisan
+       => Value : sama seperti box-shadow -> x-offset, y-offset, blur dan 
+					     warnanya
+
+ >> Utk value opacity() dan drop-shadow() pada property filter, keduanya ada 
+    property CSSnya sendiri, sama halnya seperti property opacity dan drop-
+    shadow
+
+ >> Parameter opacity() dan drop-shadow() pada property filter bekerja di 
+    belakang layar dgn melakukan operasi matematika agar gambar bisa 
+    transparan. Perubahannya menggunakan hardware sehingga prosesnya lebih 
+    cepat
+
+ >> Property opacity, box-shadow dan text-shadow murni menggunakan kemampuan 
+    browser
+
+ >> Dgn menggunakan parameter drop-shadow() pada property filter, ketika elemen 
+    itu berupa text, maka property filter akan menerapkan teknik text-shadow, 
+    namun ketika elemennya gambar atau bentuk, maka property filter akan 
+    menerapkan box-shadow
+
+ >> Kerennya menggunakan drop-shadow, apabila gambar berupa tulisan dgn 
+    ekstensi .png, maka yg diberi bayangan adalah tiap huruf yg ada di gambar, 
+    bukan kotaknya
+
+ >> Parameter pada filter bisa ditumpuk penggunaannya : 
+
+    Contoh :
+
+	img {
+		filter: drop-shadow(5px 5px 0 black) 					grayscale(50%);
+	}
+
+ >> Web utk memberi efek dgn property filter pada gambar sebelum diterapkan ke 
+    project : 
+    https://cssfilter.com/
+
+
+ >> PROPERTY TRANSFORM <<
+
+
+ >> transform = Utk memanipulasi format visual dari elemen HTML
+		=> Format visual -> ukuran, bentuk, elemen, posisi
+		=> Penulisan -> transform: <fungsi>;
+
+ >> Jenis property transform = 2D dan 3D
+
+ >> Fungsi transformasi : 
+
+    1. scale = Memperbesar/memperkecil elemen
+
+	       => Penulisan : transform: scale(angka) atau scale(angkaX, 
+					 angkaY) atau tulis salah 
+					 satu(scaleX(angka) atau scaleY(angka))
+
+	       => Value : angka, berapa kali lipat pembesaran/perkecilannya
+
+    2. rotate = Memutar/merotasi elemen searah jarum jam
+
+	        => Penulisan : transform: rotate(deg) atau rotate(degX, 
+					  degY) atau tulis salah 
+					  satu(rotateX(deg) atau rotateY(deg))
+
+	        => Value : deg, berapa derajat elemen berotasi, bisa dimasukkan 
+			   value minus(-)
+
+    3. skew = Membuat condong/miring, skew sama dgn skewX
+
+	      => Penulisan : transform: skew(deg) atau skew(degX, degY) atau 
+					tulis salah satu(skewX(deg) atau 
+					skewY(deg))
+
+	      => Value : deg, berapa derajat elemen miring, bisa dimasukkan 
+			 value minus(-)
+
+    4. translate = Mengubah posisi
+
+		   => Penulisan : transform: translate(px) atau translate(pxX, 
+					     pxY) atau tulis salah 
+					     satu(translateX(px) atau 
+					     translateY(px))
+
+		   => Value : px
+
+ >> Penulisan property transform dgn beberapa parameternya : 
+
+    transform: scale(angka), scaleX(angka), scaleY(angka)
+	       rotate(deg), rotateX(deg), rotateY(deg) 
+	       skew(deg), skewX(deg), skewY(deg)
+	       translate(px), translateX(px), translateY(px)
+
+ >> Parameter dari transform dpt ditumpuk lebih dari 1 fungsi transformasi
+
+    Contoh : 
+
+			.kotak:hover {
+				transform: rotate(180deg) rotateX(180deg) 				rotateY(180deg);
+			}
+
+ >> Penggunaan translate() pada property transform tdk mempengaruhi elemen 
+    disekitarnya, beda dgn margin
+
+ >> Efek yg dihasilkan translate() dan property position dgn value absolute 
+    sama, tapi performa translate() lebih baik karena property transform 
+    menggunakan akselerasi dari hardware
+
+ >> Property transform memiliki fungsi yg bisa ditumpuk lebih dari 1 : 
+
+    Contoh : 
+
+			.kotak:hover {
+				transform: scale(1.5) rotate(180deg);
+			}
+
+
+ >> TRANSITION PART 1 <<
+
+
+ >> transition = Mengubah nilai dari property HTML secara halus
+
+ >> Fungsinya mirip dgn animation, bedanya keadaan awal dan akhir elemen yg 
+    menggunakannya
+
+ >> Penulisan transition : 
+
+    => transition: [property] <durasi> [fungsi] [delay];
+
+	-> parameter durasi wajib ditulis
+
+ >> durasi = Waktu saat merubah nilai elemen HTML dari keadaan awal ke keadaan 
+	     akhir
+
+	     => Value -> angka, satuannya s/ms
+
+ >> Perubahan pada property transform tdk akan terlihat apabila kita tdk 
+    memberikan property transition juga di keadaan awalnya
+
+ >> Parameter property pada transition = Menentukan property apa saja yg ingin 
+    dilakukan transisi, bisa lebih dari 1 property
+    => Value : all, <nama property>, none
+
+ >> Jika ada 3 perubahan ketika kita melakukan hover pada suatu elemen, apabila 
+    tdk ada parameter property pada property transition, maka transisi akan 
+    dilakukan di semua perubahan
+
+ >> Property yg bisa di transisikan : 
+
+    1. background-color
+
+    2. background-position
+
+    3. background-size
+
+    4. border
+
+    5. color
+
+    6. filter
+
+    7. font-size
+
+    8. line-height
+
+    9. top left bottom right
+
+    10. margin padding
+
+    11. width height
+
+    12. opacity
+
+    13. transform
+
+    14. word-spacing
+
+    15. letter-spacing
+
+ >> Property yg tdk bisa di transisikan : 
+
+    1. font-family
+
+    2. display
+
+    3. position
+
+
+ >> TRANSITION PART 2 <<
+
+
+ >> Parameter fungsi pada transisi = Timing function, pergerakan apa saja yg 
+				     ingin dilakukan ketika transisi
+
+ >> Valuenya => ease(Default), ease-in, ease-out, ease-in-out, linear, cubic-
+		bezier(w,x,y,z)
+
+    1. ease = Default value dari fungsi, jika ditambahkan tdk terjadi perubahan
+
+    2. ease-in = Kecepatan awal transisi lebih lambat, kecepatan akhir lebih 
+		 cepat dgn durasi yg sama
+
+    3. ease-out = Kecepatan awal transisi lebih cepat, kecepatan akhir lebih 
+		  lambat dgn durasi yg sama
+
+    4. ease-in-out = Kecepatan transisi di pertengahan lebih cepat, kecepatan 
+		     awal dan akhirnya lambat
+
+    5. linear = Kecepatan transisi konstan dari awal sampai akhir
+
+    6. cubic-bezier(w,x,y,z) = Menentukan kecepatan transisi berdasarkan curva 
+			       yg ada di inspect elemen, berupa garis dan 2 
+			       lingkaran utk mengatur dan menghasilkan 
+			       persamaan linear
+
+ >> Penerapan value parameter fungsi pada property transition : 
+
+    1. Jalankan kodingan kita dgn menerapkan parameter fungsi yg valuenya 
+       cubic-bezier(w,x,y,z) dgn value tiap hurufnya 0
+
+    2. Di chrome, gunakan inspect elemen, di bagian styles ada cubic-bezier, 
+       ada logo seperti curva, di klik itu, maka akan muncul satu garis dan 2 
+       lingkaran yg bisa di gerakkan utk menghasilkan persamaan linear dari 
+       transisi
+
+    3. Setelah menentukan transisinya, kita copas nilai dari cubic-bezier tadi 
+       ke kodingan kita
+
+ >> Parameter delay pada transisi = Utk memberi waktu tunggu sebelum 
+				    menjalankan transisi
+				    => Value -> angka, satuannya s/ms
+
+ >> Penulisannya : 
+
+	transition: margin-left 3s, transform 3s 2s;
+
+    => Artinya tunggu 2 detik sebelum melakukan transisi selama 3 detik
+
+ >> Bisa digunakan utk multiple transition
+
+
+ >> ANIMATION <<
+
+
+ >> animation = Memiliki beberapa keadaan, tdk seperti transition yg hanya 2 
+		keadaan. Dgn menggunakan @keyframes, kita bisa bikin keadaan di 
+		antaranya
+
+ >> Property menggunakan keyframe : 
+
+	@keyframes [name] {
+		from {
+			[property-css]
+		}
+
+		to {
+			[property-css]
+		}
+	}
+
+ >> Penulisan from dan to, bisa diganti dgn % agar keyframe bisa banyak
+
+ >> [name] adalah nama dari keyframe, bisa ditulis bebas sesuai fungsi. Jika 
+    hanya 2 keadaan, gunakan from dan to, jika lebih dari 1 keadaan, gunakan %
+
+ >> Jika keyframe sudah dibuat, gunakan property animation dgn parameter 
+    awalnya adalah nama dari keyframe yg sudah dibuat
+
+ >> Jika dijalankan di browser, maka animasi akan dijalankan, dan kembali ke 
+    keadaan awal
+
+ >> Parameter value dari animation : 
+
+ >> Shorthand/singkatan property animation : 
+
+    animation : [name] [duration] [timing-function] [delay] [iteration-count] 
+		[direction] [fill-mode] [play-state]
+
+    1. animation-name: [name] = Wajib ada, nama dari animasi yg sesuai dgn 
+				keyframes yg dibuat
+
+    2. animation-duration: [duration] = Durasi dari animasinya
+
+    3. animation-timing-function: [timing-function] = Kecepatan pergerakannya 
+						      di tiap keadaan
+
+    4. animation-delay: [delay] = Waktu tunggu sebelum animasi dijalankan
+
+    5. animation-iteration-count: [iteration-count] = Pengulangan animasi mau 
+						      berapa kali
+       
+       => Value : <angka> atau infinite
+
+    6. animation-direction: [direction] = Arah dari animasi berjalan
+
+       => Value : normal(default) berjalan dari awal ke akhir, reverse berjalan 
+		  dari akhir ke awal, alternate berjalan berganti2 dimulai dari 
+		  awal, alternate-reverse berjalan berganti2 dimulai dari akhir
+
+    7. animation-fill-mode: [fill-mode] = Utk menentukan akhir dari transisi 
+					  seperti apa, jika tdk ingin 
+					  transisinya kembali ke awal, kita 
+					  tambahkan value forwards
+
+       => Value : none(default), forwards tdk kembali ke posisi awal, 
+		  backwards, both
+
+    8. animation-play-state: [play-state] = Utk membuat animasinya berjalan dan 
+					    berhenti
+
+       => Value : running, paused
+
+       => Butuh Javascript utk menerapkan dgn value paused
+
+
+ >> GALERI FOTO + LIGHTBOX PART 1 <<
+
+
+ >> Masuk ke folder mengingat membuat galeri foto + lightbox part 1 yg ada di 
+    dlm folder mengingat materi utk menerapkan border-radius + opacity + rgba() 
+    + box-shadow + text-shadow + @font-face + transform + transition pada 
+    galeri foto
+
+
+ >> GALERI FOTO + LIGHTBOX PART 2 <<
+
+
+ >> Masuk ke folder mengingat membuat galeri foto + lightbox part 2 yg ada di 
+    dlm folder mengingat materi utk menerapkan border-radius + opacity + rgba() 
+    + box-shadow + text-shadow + @font-face + transform + transition + 
+    animation pada lightbox
+
+
+ >> GALERI FOTO + LIGHTBOX PART 3 <<
+
+
+ >> Masuk ke folder mengingat membuat galeri foto + lightbox part 3 yg ada di 
+    dlm folder mengingat materi utk menerapkan tombol navigasi

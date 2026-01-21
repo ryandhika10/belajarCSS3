@@ -1,0 +1,128 @@
+ >> GALERI FOTO + LIGHTBOX PART 3 <<
+
+
+ >> Pada bagian ini, kita akan buat navigasi pada lightbox
+
+ >> Penerapannya : 
+
+    1. Sebelum mulai, kita download icon panah kiri dan kanan di website 
+       penyedia icon, lalu simpan di dlm folder img
+
+    2. Di html, buat tag a dgn class next di bawah tag img yg ada di dlm tag 
+       overlay, isikan konten dgn isi "next"
+
+       Contoh : 
+
+       <div class="overlay" id="gambar-1">
+		<a href="#" class="close">x close</a>
+		<img src="img/full/Gambar1.jpeg" alt="Sama Kakak Via" />
+		<a href="" class="next">next</a>
+	</div>
+
+    3. Di dlm file css, buat komentar baru sebelum komentar animasi dgn isi 
+       "navigasi", di bawahnya buat selector .next yg di dlmnya terdapat 
+       property lebar dan tinggi sesuaikan dgn lebar dan tinggi gambar yg kita 
+       punya
+
+       Contoh : 
+
+       /* navigasi */
+
+	.next {
+		width: 64px;
+		height: 64px;
+		background-image: url(../img/next.png);
+	}
+
+    4. Karena display default dari tag a adalah inline, maka kita tdk bisa atur 
+       lebar dan tingginya, kita tambahkan property position dgn value 
+       absolute, agar kita bisa ubah posisinya. Selanjutnya kita hilangkan 
+       tulisannya dgn property text-indent dgn value - yg cukup besar agar teks 
+       menghilang dari layar ke kiri, atur top dgn value 40% dan margin kiri 
+       50px agar panah berada di tengah kanan dari gambar
+
+       Contoh : 
+
+	.next {
+		width: 64px;
+		height: 64px;
+		background-image: url(../img/next.png);
+		position: absolute;
+		text-indent: -9999px;
+		top: 40%;
+		margin-left: 50px;
+	}
+
+    5. Tambahkan tag a sebelum tag img yg ada di dlm tag overlay dgn copas tag 
+       a dgn class next, lalu ubah nama kelas dan isi kontennya jadi prev
+
+       Contoh : 
+
+		<a href="" class="prev">prev</a>
+
+    6. Di CSSnya, pada selector next tambahkan selector prev, lalu tinggal 
+       panahnya di ubah jadi prev dan posisinya di geser ke sebelah kiri. Dgn 
+       membuat selector baru dgn nama prev utk mengoverride atau menimpa 
+       background-image dan posisinya, dgn menambahkan property gambar 
+       background yg isinya url mengarah ke gambar prev, margin kiri sebesar 
+       -100px
+
+       Contoh : 
+
+	.prev {
+		background-image: url(../img/prev.png);
+		margin-left: -100px;
+	}
+
+    7. Selanjutnya kita tinggal tambahkan href agar ketika di klik, pindah ke 
+       gambar berikutnya utk next dan pindah ke sebelumnya utk prev
+
+       Contoh : 
+
+	<div class="overlay" id="gambar-1">
+		<a href="#" class="close">x close</a>
+		<a href="#gambar-4" class="prev">prev</a>
+		<img src="img/full/Gambar1.jpeg" alt="Sama Kakak Via" />
+		<a href="#gambar-2" class="next">next</a>
+	</div>
+
+    8. Selanjutnya, kita buat animasi agar panah tdk langsung muncul, dgn 
+       membuat keyframes baru dgn nama fadeAjah yg di dlmnya ketika 0% maka 
+       opacity 0, ketika 100% maka opacitynya 1. Buat selector pada saat 
+       overlaynya di target maka tombol next kita beri style, di dlmnya buat 
+       property animation yg valuenya nama keyframes yg baru di buat dgn 
+       durasi .5s durasinya .5s delay dan forwards agar animasi berhenti di 
+       akhir. Tambahkan property opacity dgn value 0 pada selector next dan 
+       prev yg gabung, tambahkan selector overlay ketika di target maka prev 
+       akan di style, gabung selectornya dgn overlay target next
+
+       Contoh : 
+
+	.overlay:target .next,
+	.overlay:target .prev {
+		animation: fadeAjah 0.5s 0.5s forwards;
+	}
+
+	/* navigasi */
+
+	.next,
+	.prev {
+		width: 64px;
+		height: 64px;
+		background-image: url(../img/next.png);
+		position: absolute;
+		text-indent: -9999px;
+		top: 40%;
+		margin-left: 50px;
+		opacity: 0;
+	}
+
+    9. Sekarang tambahkan semua tombolnya, next dan prev ke semua gambarnya di 
+       html, ganti animasi gambar gk perlu zoom in, dgn ubah value dari 
+       animationnya jadi fadeAjah
+
+       Contoh : 
+
+	.overlay:target img {
+		animation: fadeAjah 1s;
+	}

@@ -1,0 +1,168 @@
+ >> PROPERTY TRANSITION PART 2 <<
+
+
+ >> Parameter fungsi pada transisi = Disebut juga timing function, pergerakan 
+				     apa yg ingin dilakukan ketika transisi
+
+ >> Value parameter fungsi = ease(Default), ease-in, ease-out, ease-in-out, 
+			     linear, cubic-bezier(w,x,y,z)
+
+    1. ease = Default value dari fungsi, jika ditambahkan tdk terjadi perubahan
+
+    2. ease-in = Kecepatan awal lebih lambat, kecepatan akhir lebih cepat dgn 
+		 durasi yg sama
+
+    3. ease-out = Kecepatan awal lebih cepat, kecepatan akhir lebih lambat dgn 
+		  durasi yg sama
+
+    4. ease-in-out = Kecepatan di pertengahan lebih cepat, kecepatan awal dan 
+		     akhirnya lambat
+
+    5. linear = Kecepatan transisi konstan dari awal sampai akhir
+
+    6. cubic-bezier(w,x,y,z) = Menentukan kecepatan transisi berdasarkan curva 
+			       yg ada di inspect elemen, berupa garis dan 2 
+			       lingkaran utk mengatur dan menghasilkan 
+			       persamaan linear
+
+ >> Penerapan parameter fungsi : 
+
+    1. Gunakan file html pada materi transition 1, pada property transition, 
+       tambahkan parameter setelah durasi dgn ease, maka hasilnya tdk terjadi 
+       perubahan
+
+    2. Ubah valuenya menjadi ease-in, hasilnya transisi akan awalnya pelan, 
+       semakin lama semakin cepat
+
+       Contoh : 
+
+			.kotak {
+				width: 100px;
+				height: 100px;
+				background-color: salmon;
+				transition: all 1s ease-in;
+			}
+
+    3. Utk lebih jelasnya, kita bikin 3 kotak dgn setiap kotak tambahkan 
+       property transisi dgn parameter fungsi yg berbeda dan buat konten teks 
+       sesuai parameter fungsinya, bikin teks supaya berada di tengah
+
+       Contoh : 
+
+			.kotak {
+				width: 100px;
+				height: 100px;
+				background-color: salmon;
+				text-align: center;
+				line-height: 100px;
+				margin: 5px 0;
+			}
+			.kotak1 {
+				transition: all 1s ease;
+			}
+			.kotak2 {
+				transition: all 1s ease-in;
+			}
+			.kotak3 {
+				transition: all 1s ease-out;
+			}
+
+		<div class="container">
+			<div class="kotak kotak1">ease</div>
+			<div class="kotak kotak2">ease-in</div>
+			<div class="kotak kotak3">ease-out</div>
+		</div>
+
+ >> Buat sampai kotak5, lalu tambahkan fungsi lainnya
+
+    Contoh : 
+
+			.kotak4 {
+				transition: all 1s ease-in-out;
+			}
+			.kotak5 {
+				transition: all 1s linear;
+			}
+
+		<div class="container">
+			<div class="kotak kotak1">ease</div>
+			<div class="kotak kotak2">ease-in</div>
+			<div class="kotak kotak3">ease-out</div>
+			<div class="kotak kotak3">ease-in-out</div>
+			<div class="kotak kotak3">linear</div>
+		</div>
+
+ >> Ubah semua durasinya menjadi 3 detik, agar terlihat perbedaannya
+
+ >> Penerapan fungsi cubic-bezier(w,x,y,z) : 
+
+    1. Buat kotak keenam, lalu gunakan selector kotak6, beri transisi dgn 
+       fungsi cubic-bezier(0,0,0,0);
+
+       Contoh : 
+
+			.kotak6 {
+				transition: all 3s cubic-bezier(0, 0, 0, 0);
+			}
+
+    2. Gunakan inspect elemen di chrome, lalu bagian styles ada cubic-bezier, 
+       ada logo seperti curva, klik, maka akan muncul garis dan 2 lingkaran yg 
+       bisa kita gerakkan utk menghasilkan persamaan linear yg menentukan 
+       pergerakan  dari transisinya
+
+    3. Setelah menentukan transisinya, kita copas nilai dari cubic-bezier tadi 
+       ke kodingan kita
+
+       Contoh : 
+
+			.kotak6 {
+				transition: all 3s cubic-bezier(0.24, -0.35, 
+				0.78, 1.46);
+			}
+
+ >> Parameter delay = Utk memberikan waktu tunggu sebelum menjalankan transisi
+
+		      => Value : angka, satuannya s/ms
+
+ >> Penerapan delay : 
+
+    1. Kembali ke kodingan, kita balik buat tag div dgn class kotak hanya satu, 
+       dengan property yg sama, ditambah property transition dgn value 3s, 
+       artinya property defaultnya adalah all, timing function defaultnya 
+       adalah ease, kalau tidak ditambahkan parameternya
+
+       Contoh : 
+
+			.kotak {
+				width: 100px;
+				height: 100px;
+				background-color: salmon;
+				text-align: center;
+				line-height: 100px;
+				margin: 5px 0;
+				transition: 3s;
+			}
+
+    2. Ketika kotak di hover, maka kotak akan berputar, bergeser dan berubah 
+       warna. Penambahan parameter delay, ditulis dgn angka setelah durasi
+
+       Contoh : 
+
+				transition: 3s 2s;
+
+       >> Artinya tunggu 2 detik sebelum melakukan transisi selama 3 detik
+
+    3. Delay juga bisa digunakan utk multiple transition, penerapannya, kita 
+       bisa kasih 2 parameter property transisi dgn durasi misalnya masing2 3 
+       detik, tetap salah satu property transisi kita tambahkan parameter delay 
+       selama 2 detik
+
+       Contoh : 
+
+				transition: margin-left 3s, transform 3s 2s;
+
+       >> Hasilnya kotak akan berputar setelah 2 detik kotak bergeser dan 
+	  pergantian warna terjadi secara instan. Kita bisa tambahkan lagi 
+	  parameter property utk perubahan warna, dgn durasi setengah 
+	  detik(500ms) dan delaynya 3 detik, jadi perubahan warna akan terjadi 
+	  setelah 3 detik kemudian

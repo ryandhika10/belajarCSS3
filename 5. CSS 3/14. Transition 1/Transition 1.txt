@@ -1,0 +1,193 @@
+ >> PROPERTY TRANSITION PART 1 <<
+
+
+ >> transition = Memungkinkan kita dpt mengubah nilai dari property HTML secara 
+		 halus
+
+ >> Transition dan animation adalah property yg dimiliki CSS3, fungsinya mirip, 
+    tetapi yg membedakan adalah keadaan awal dan akhir elemen yg menggunakannya
+
+ >> Perbedaan transition dan animation : 
+
+    1. Contoh ada elemen kotak yg bergerak dari kiri ke kanan, keadaan awal di 
+       kiri, keadaan akhir di kanan, sementara pergerakannya/animasinya disebut 
+       transisi, jika hanya ada keadaan awal dan akhir saja
+
+    2. Sedangkan animasi, pergerakannya lebih dari 2 keadaan, bukan hanya ada 
+       keadaan awal dan akhir, tetapi ada keadaan di antaranya, bisa disebut 
+       juga dgn keyframe
+
+ >> Penulisan transition : 
+
+    => transition: [property] <durasi> [fungsi] [delay];
+
+ >> Parameter durasi wajib ditulis di property transition
+
+ >> Parameter value pada property transition : 
+
+    1. durasi = Waktu pada saat merubah nilai elemen HTML dari keadaan awal ke 
+		akhir
+
+	      => Value : angka, satuannya s/ms
+
+       Contoh : 
+
+       1. Buat struktur HTML sederhana, di tag head buat style yg di dlmnya 
+	  buat selector body dgn property margin dan padding masing2 valuenya 0
+
+       2. Di dlm tag head buat tag div dgn class kotak, buat selector kotak dgn 
+          property lebar dan tinggi masing2 100px dan warna background salmon
+
+		<style>
+			body {
+				margin: 0;
+				padding: 0;
+			}
+			.kotak {
+				background-color: salmon;
+				width: 100px;
+				height: 100px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="kotak"></div>
+	</body>
+
+       >> Ini adalah keadaan awal elemen kotak, keadaan akhir biasanya kita 
+	  simpan ketika elemen di hover
+
+       3. Kita buat selector .kotak dgn keadaan hover, dgn property transform 
+	  yg fungsinya rotate sebesar 180 derajat
+
+			.kotak:hover {
+				transform: rotate(180deg);
+			}
+
+       >> Ketika di hover, tdk terjadi apa2, padahal kotak sudah berputar 180 
+	  derajat, kalau 180 derajat, keadaan akhir mirip seperti keadaan awal, 
+	  jika valuenya diganti 45 derajat, hasilnya kita bisa lihat 
+	  perubahannya
+
+       >> Supaya kita bisa lihat perubahannya, kita tambahkan property transisi 
+	  pada keadaan awal/sebelum hover
+
+			.kotak {
+				background-color: salmon;
+				width: 100px;
+				height: 100px;
+				transition: 1s;
+			}
+
+    2. property = Menentukan property apa saja yg ingin dilakukan transisi, 
+		  bisa lebih dari 1 property
+		  => Value : all <nama property> none
+
+       Contoh : 
+
+       1. Sekarang, kita bisa tambahkan property yg lain, seperti margin utk 
+	  memindahkan posisi elemen ketika di hover sebesar 800px
+
+			.kotak:hover {
+				transform: rotate(180deg);
+				margin-left: 800px;
+			}
+
+       >> Hasilnya, ketika elemen kita hover, maka elemen akan berpindah dari 
+	  kiri ke kanan, tetapi gerakannya seperti patah2, dikarenakan setiap 
+	  pergerakan css akan menghitung ulang posisinya, sehingga apabila kita 
+	  menggerakkan mouse, akan terjadi transisi patah2
+
+       >> Solusinya bungkus elemen .kotak dgn tag lain
+
+       2. Bungkus elemen .kotak dgn .container, ganti .kotak hover 
+	  menjadi .container hover
+
+			.container:hover .kotak {
+				transform: rotate(180deg);
+				margin-left: 800px;
+			}
+
+       >> Artinya, ketika hover dilakukan pada elemen container, maka kotak di 
+	  dlmnya akan berputar 180 derajat dan bergeser ke kanan sebesar 800px
+
+       3. Buat selector .container dgn property lebar 900px, margin atas bawah 
+	  10px dan kiri kanan auto, lalu beri border 5px solid black agar 
+	  terlihat
+
+			.container {
+				width: 900px;
+				margin: 10px auto;
+				border: 5px solid black;
+			}
+
+       4. Kalau kita tambahkan property lain di hover, misal ganti warnanya 
+	  menjadi royalblue, hasilnya ketika di hover akan mengubah warna 
+	  elemen menjadi biru
+
+			.container:hover .kotak {
+				transform: rotate(180deg);
+				margin-left: 800px;
+				background-color: royalblue;
+			}
+
+ >> Property transition akan berusaha mengubah apa yg bisa dia ubah, ketika 
+    kita tulis 3 property perubahan, maka ketiganya akan di ubah
+
+ >> Jika penulisannya hanya default durasi saja, maka yg terjadi kita 
+    mengirimkan all sebagai parameter property transition ke css nya
+
+ >> Kita juga bisa memilih salah satu dari 3 property yg kita buat ketika 
+    elemen di hover dgn menulis property apa yg ingin kita transisikan
+
+    Contoh : 
+
+			.kotak {
+				background-color: salmon;
+				width: 100px;
+				height: 100px;
+				transition: margin-left 1s;
+			}
+
+ >> Hasilnya elemen akan bergerak dari kiri ke kanan secara halus, sedangkan 
+    perputaran dan perubahan warna terjadi secara instan
+
+ >> Property apa saja yg bisa di transisikan : 
+
+    1. background-color
+
+    2. background-position
+
+    3. background-size
+
+    4. border
+
+    5. color
+
+    6. filter
+
+    7. font-size
+
+    8. line-height
+
+    9. top left bottom right
+
+    10. margin padding
+
+    11. width height
+
+    12. opacity
+
+    13. transform
+
+    14. word-spacing
+
+    15. letter-spacing
+
+ >> Property yg tdk bisa di transisikan : 
+
+    1. font-family
+
+    2. display
+
+    3. position

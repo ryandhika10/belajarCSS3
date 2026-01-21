@@ -1,0 +1,84 @@
+ >> BOX SHADOW <<
+
+
+ >> box-shadow = Memberikan bayangan pada elemen yg kita buat
+
+ >> Implementasi box-shadow sebelum CSS3 : 
+
+    1. Buat elemen kotak dgn ukuran 300x300px di photoshop, warnai dgn warna 
+       hijau
+
+    2. Ada opsi pada photoshop yg namanya drop shadow, ketika di checklist, 
+       otomatis kotak tersebut memiliki shadow bagian kanan dan bawah
+
+    3. Ada beberapa opsi pilihan di dlm drop shadow yg perilakunya sama seperti 
+       CSS3 
+
+ >> Beberapa bagian dari drop shadow : 
+    
+    1. Structure :  -> Blend mode yg hanya diterapkan di photoshop. 
+
+		    -> Opacity utk mengatur transparansi bayangan, semakin 
+		       kecil(%), bayangan akan semakin transparan. 
+
+		    -> Angle menentukan sudut datangnya cahaya, valuenya adalah 
+		       derajat
+
+		    -> Distance, jarak bayangan terhadap objeknya/elemen, 
+		       semakin besar valuenya(px), semakin jauh jaraknya
+
+		    -> Size, mengatur ukuran dari blur di bayangannya, semakin 
+		       besar valuenya(px), semakin blur bayangannya, semakin 
+		       kecil, bayangannya akan solid
+
+		    -> Spread, menambahkan tebal bayangannya, semakin besar 
+		       valuenya(%), maka bayangannya semakin besar
+
+ >> Penerapan box-shadow dgn CSS3 :
+    
+    1. Buat file dgn ekstensi html, yg di dlmnya buat struktur html sederhana, 
+       buat tag div di dlm tag body dan buat tag style di dlm tag head
+
+    2. Gunakan selector div, lalu beri property lebar dan tinggi masing2 300px, 
+       warna background hexa #39b54a. Hasilnya akan muncul kotak dgn ukuran 
+       300x300px berwarna hijau
+
+    3. Beri margin atas-bawah 50px dan kiri kanan auto agar berada di tengah
+
+ >> Property box-shadow dan beberapa parameter wajibnya :
+
+    1. <x-offset>, utk mengatur jarak bayangan thd sumbu horizontal, valuenya 
+		   px, jika valuenya negatif, maka bayangan akan berada di kiri
+
+    2. <y-offset>, utk mengatur jarak bayangan thd sumbu vertikal, valuenya px, 
+		   jika valuenya negatif, maka bayangan akan berada di atas
+
+    3. <blur>, mirip dgn property size di photoshop, seberapa besar blur yg 
+	       ingin diberikan, valuenya px
+
+    4. <color>, memberikan warna pada bayangan
+
+ >> Parameter opsional box-shadow : 
+
+    1. <inset>
+
+    2. <spread>
+
+ >> Penulisan box-shadow : 
+
+    -> box-shadow: <inset> <x-offset> <y-offset> <blur> <spread> <color>
+
+    4. Penerapan box-shadow, beri property box-shadow, value pertama utk x-
+       offset sebesar 5px, berarti bayangan akan berada di kanan sebesar 5px, 
+       y-offset sebesar 5px, bayangan akan berada di bawah sebesar 5px, blurnya 
+       5px, lalu beri warna bayangannya hitam
+
+       -> Contoh :
+
+				box-shadow: 5px 5px 5px black;
+
+    5. Warna bisa diganti dgn rgba(), kita bisa beri opacity disana
+
+       -> Contoh : 
+
+				box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.75);

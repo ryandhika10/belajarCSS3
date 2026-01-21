@@ -1,0 +1,96 @@
+ >> VALUE RADIAL GRADIENT PADA PROPERTY BACKGROUND/BACKGROUND-IMAGE <<
+
+
+ >> radial gradients = Membuat gradasi warna secara melingkar, konsepnya mirip 
+		       seperti linear gradients
+
+ >> Syntax sederhana : 
+
+    => background-image: radial-gradient(<warna awal>, <warna akhir>);
+
+    -> warna awal akan menjadi pusat lingkarannya
+
+ >> Multiple color : 
+
+    => background-image: radial-gradient(<warna-1>, <warna-2>, ..., <warna-n>);
+
+ >> Color stop : 
+
+    => background-image: radial-gradient(red 10%, green 20%, blue 80%);
+
+ >> Syntax lengkap : 
+
+    => radial-gradient(<tipe> <jangkauan> at <posisi-y> <posisi-x>, <warna-1>, 
+       <warna-2>, ..., <warna-n>);
+
+    -> tipe memiliki 2 value : ellipse(default) dan circle
+
+    -> jangkauan = Jangkauan dari gradasi warna, jarak dari pusat gradient ke 
+		   sisi terluarnya
+
+       - Value dari jangkauan : 
+
+         1. closest-corner = jarak dari pusat gradien ke sudut terdekat elemen
+
+         2. closest-side = jarak dari pusat gradient ke sisi terdekat elemen
+
+	 3. farthest-corner = jarak dari pusat gradient ke sudut terjauh elemen
+
+	 4. farthest-side = jarak dari pusat gradient ke sisi terjauh elemen
+
+    -> posisi-y dan posisi-x = Posisi pusat dari gradasinya
+
+ >> Penerapan radial gradients : 
+
+    1. Kita buat file dgn ekstensi html yg di dlmnya terdapat struktur html 
+       sederhana
+
+    2. Buat tag div di dlm tag body dan tag style di dlm tag head
+
+    3. di dlm tag style, buat selector div yg di dlmnya terdapat property width 
+       dan height masing2 berukuran 600px dan 300px, margin dgn value atas 
+       bawah 50px dan kiri kanan auto utk membuat elemen berada di tengah
+
+    4. Tambahkan property background-image dgn value radial-gradient() yg 
+       parameter valuenya circle closest-side, red, blue
+
+       Contoh : 
+
+		<style>
+			div {
+				width: 600px;
+				height: 300px;
+				margin: 50px auto;
+				background-image: radial-gradient(circle 
+				closest-side, red, blue);
+			}
+		</style>
+	</head>
+	<body>
+		<div></div>
+	</body>
+
+    5. Hasilnya elemen akan bergradasi lingkaran dan jangkauan gradasinya akan 
+       sampai ke sisi terdekatnya
+
+    6. Jika value jangkauannya menjadi farthest-corner, akhir dari gradasi akan 
+       berada di ujung sudut elemen terjauhnya
+
+ >> Posisi = Memindahkan pusat gradasinya
+
+    => posisi-y = utk memindahkan posisi secara vertikal
+       -> value = top, center, bottom, px
+
+    => posisi-x = utk memindahkan posisi secara horizontal
+       -> value = left, center, right, px
+
+ >>  Contoh : 
+
+	background-image: radial-gradient(
+				circle farthest-side at top left,
+				red,
+				blue
+			  );
+
+ >> Hasilnya, pusat gradasinya akan membentuk lingkaran, jangkauan gradasinya 
+    akan sampai di sudut terjauh dan pusatnya akan berada di kiri atas elemen

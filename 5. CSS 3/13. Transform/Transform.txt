@@ -1,0 +1,167 @@
+ >> PROPERTY TRANSFORM <<
+
+
+ >> transform = Property CSS3 yg memungkinkan kita dpt memanipulasi format 
+		visual dari elemen HTML (eksperimental & butuh vendor prefix 
+		(2016))
+
+		=> Format visual : ukuran, bentuk elemen, posisi
+		=> Penulisan : transform: <fungsi>;
+
+ >> Jenis property transform = 2D dan 3D
+
+ >> Fungsi transformasi : 
+
+    1. scale = memperbesar/memperkecil elemen
+
+	       => Penulisan : transform: scale(angka) atau scale(angkaX, 
+					 angkaY) atau tulis salah 
+					 satu(scaleX(angka) atau scaleY(angka))
+
+	       => Value : angka, berapa kali lipat pembesaran/perkecilannya
+
+    2. rotate = memutar/merotasi elemen searah jarum jam
+
+	        => Penulisan : transform: rotate(deg) atau rotate(degX, 
+					  degY) atau tulis salah 
+					  satu(rotateX(deg) atau rotateY(deg))
+
+	        => Value : deg, berapa derajat elemen berotasi, bisa dimasukkan 
+			   value minus(-)
+
+    3. skew = membuat condong/miring, skew sama dgn skewX
+
+	      => Penulisan : transform: skew(deg) atau skew(degX, degY) atau 
+					tulis salah satu(skewX(deg) atau 
+					skewY(deg))
+
+	      => Value : deg, berapa derajat elemen miring, bisa dimasukkan 
+			 value minus(-)
+
+    4. translate = mengubah posisi
+
+		   => Penulisan : transform: translate(px) atau translate(pxX, 
+					     pxY) atau tulis salah 
+					     satu(translateX(px) atau 
+					     translateY(px))
+
+		   => Value : px
+
+ >> Penerapan transform : 
+
+    1. Buat file dgn ekstensi .html yg di dlmnya buat struktur html sederhana. 
+       Di dlm tag body, buat tag div dgn class kotak dan tag p yg menyimpan 
+       konten lorem
+
+       Contoh : 
+
+		<div class="kotak"></div>
+		<p>
+			Lorem ipsum dolor sit amet consectetur adipisicing 			elit. Aperiam impedit
+			exercitationem vitae placeat ab fuga nihil iste vero 			eos sed. Soluta, quia
+			sapiente cum quas necessitatibus dolorem aliquid 			assumenda maiores!
+		</p>
+
+    2. Buat tag style di bawah tag title yg di dlmnya buat tag p dgn property 
+       ukuran font 20px dan arah text berada di tengah. Buat juga selector 
+       kotak yg di dlmnya ada property lebar dan tinggi masing2 200px, warna 
+       background biru cerah dan margin atas 50px, kiri-kanan auto dan bawah 
+       0px
+
+       Contoh : 
+
+		<style>
+			p {
+				text-align: center;
+				font-size: 20px;
+			}
+			.kotak {
+				width: 200px;
+				height: 200px;
+				background-color: lightblue;
+				margin: 50px auto 0px;
+			}
+		</style>
+
+ >> Parameter/penulisan property transform : 
+    transform: scale(angka), scaleX(angka), scaleY(angka)
+	       rotate(deg), rotateX(deg), rotateY(deg) 
+	       skew(deg), skewX(deg), skewY(deg)
+	       translate(px), translateX(px), translateY(px)
+
+    3. Utk fungsi scale, kita bisa memberikan value berupa angka yg 
+       merepresentasikan berapa kali lipat elemen diperbesar/diperkecil, bisa 
+       digunakan ketika mouse melakukan hover pada elemen, maka elemen tersebut 
+       akan diperbesar, lalu diberi transisi supaya efek lebih smooth
+
+       Contoh : 
+
+			.kotak {
+				width: 200px;
+				height: 200px;
+				background-color: lightblue;
+				margin: 50px auto 0px;
+				transition: 1s;
+			}
+			.kotak:hover {
+				transform: scale(1.5);
+			}
+
+    4. Utk fungsi rotate, penulisan sama seperti scale, namun valuenya adalah 
+       berapa derajat elemen berputar searah jarum jam
+
+       Contoh : 
+
+			.kotak:hover {
+				transform: rotate(180deg);
+			}
+
+    5. Utk rotate, jika menulis rotateX, maka perputaran akan berada di sumbu 
+       X, dan rotateY perputaran akan berada di sumbu Y
+
+       Contoh : 
+
+			.kotak:hover {
+				transform: rotateX(180deg);
+			}
+
+    6. Nilai dari transform dpt ditumpuk lebih dari 1 fungsi transformasi
+
+       Contoh : 
+
+			.kotak:hover {
+				transform: rotate(180deg) rotateX(180deg) 				rotateY(180deg);
+			}
+
+    7. Utk skew, digunakan utk membuat elemennya menjadi miring secara 
+       horizontal skew = skewX
+
+       Contoh : 
+
+			.kotak:hover {
+				transform: skew(30deg);
+			}
+
+    8. Utk translate, merubah posisi elemen, penggunaannya sama seperti scale
+
+       Contoh : 
+
+			.kotak:hover {
+				transform: translate(10px, 50px);
+			}
+
+    9. Penggunaan translate tdk mempengaruhi elemen disekitarnya, berbeda dgn 
+       menggunakan margin
+
+    10. Efek yg dihasilkan translate dan property position dgn value absolute 
+	sama saja, tetapi performa translate lebih baik dibanding position 
+	absolute. Karena property transform menggunakan akselerasi dari 
+	hardware
+
+ >> Kita bisa menumpuk property transform dgn beberapa fungsi
+
+    Contoh : 
+
+			.kotak:hover {
+				transform: scale(1.5) rotate(180deg);
+			}

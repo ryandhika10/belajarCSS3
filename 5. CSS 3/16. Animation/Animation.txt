@@ -1,0 +1,182 @@
+ >> PROPERTY ANIMATION <<
+
+
+ >> animation = Mirip dgn transition, tetapi di dlm animation memiliki beberapa 
+		keadaan, tdk seperti transition yg hanya 2 keadaan, awal dan 
+		akhir. Dgn adanya keyframes, kita bisa bikin keadaan antara nya
+
+ >> Property menggunakan keyframe : 
+
+	@keyframes [name] {
+		from {
+			[property-css]
+		}
+
+		to {
+			[property-css]
+		}
+	}
+
+ >> Penulisan keyframes dapat dilakukan dimana saja, lalu terdapat from dan to, 
+    dari keadaan awal ke keadaan akhir, bisa kita ganti dgn persen, supaya 
+    keyframenya bisa banyak
+
+ >> Penerapan property animation : 
+
+    1. Buat file dgn ekstensi .html yg di dlmnya terdapat struktur html 
+       sederhana, dimana di dlm tag body buat tag div dgn class .kotak, dan di 
+       bawah tag title, buat tag style yg memiliki selector .kotak dgn property 
+       lebar dan tinggi 200px, warna background salmon
+
+       Contoh : 
+
+		<style>
+			.kotak {
+				width: 200px;
+				height: 200px;
+				background-color: salmon;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="kotak"></div>
+	</body>
+
+    2. Selanjutnya, kita animasikan, ketika elemen di hover, maka lebar akan 
+       bertambah 300px dgn menggunakan transition pada selector pseudo class 
+       hover
+
+       Contoh : 
+
+			.kotak {
+				width: 200px;
+				height: 200px;
+				background-color: salmon;
+				transition: 2s ease all;
+			}
+			.kotak:hover {
+				width: 500px;
+			}
+
+    3. Utk penerapan animation, kita hapus property yg ada di dlm pseudo-class, 
+       di bawahnya kita bikin @keyframes dgn penulisan seperti contoh. Buat 
+       nama keyframesnya misal animasiKotak yg di dlmnya hanya ada 2 keadaan, 
+       maka gunakan from dan to, keadaan awal lebarnya 200px, keadaan akhirnya 
+       lebarnya 500px
+
+       Contoh : 
+
+			@keyframes animasiKotak {
+				from {
+					width: 200px;
+				}
+				to {
+					width: 500px;
+				}
+			}
+
+       >> Hasilnya tdk terjadi perubahan, karena keyframes baru disiapkan, 
+	  belum digunakan
+
+    4. Utk menggunakannya, kita gunakan property animation di selector yg ingin 
+       kita animasikan, utk saat ini kita animasikan elemen kotak ketika di 
+       hover
+
+       Contoh : 
+
+			.kotak:hover {
+				animation: animasiKotak 2s ease;
+			}
+
+       >> parameter pertama, nama animasi yg mau digunakan, parameter kedua 
+	  durasinya berapa lama, parameter ketiga timing functionnya gimana
+
+       >> Ketika kursor hover, maka lebar dari elemen akan bertambah dan dgn 
+	  cepat kembali ke keadaan awal, karena elemen sudah melakukan 1 kali 
+	  animasi
+
+    5. Kita bisa ganti from dan to yg ada di dlm keyframes dgn 0% dan 100%, 
+       dan kita bisa menambahkan keadaan di antaranya, jadi ketika keadaan 0% 
+       lebarnya 200px, ketika 50% lebarnya menjadi 500px dan tinggi masih sama 
+       seperti keadaan awal, ketika 100% lebar dan tingginya 500px
+
+       Contoh : 
+
+			@keyframes animasiKotak {
+				0% {
+					width: 200px;
+				}
+				50% {
+					width: 500px;
+					height: 200px;
+				}
+				100% {
+					width: 500px;
+					height: 500px;
+				}
+			}
+
+    6. Kita bisa tdk menggunakan pseudo-class, dan meletakkan property 
+       animationnya ke selector kotak, jadi animasi akan dijalankan ketika kita 
+       pertama kali buka webnya/ketika halamannya di refresh
+
+ >> Parameter value dari animation : 
+
+ >> Shorthand/singkatan property animation : 
+
+    animation : [name] [duration] [timing-function] [delay] [iteration-count] 
+		[direction] [fill-mode] [play-state]
+
+    1. animation-name: [name] = Wajib ada, nama dari animasi yg sesuai dgn 
+				keyframes yg dibuat
+
+    2. animation-duration: [duration] = Durasi dari animasinya
+
+    3. animation-timing-function: [timing-function] = Kecepatan pergerakannya 
+						      di tiap keadaan
+
+    4. animation-delay: [delay] = Waktu tunggu sebelum animasi dijalankan
+
+    5. animation-iteration-count: [iteration-count] = Pengulangan animasi mau 
+						      berapa kali
+       
+       => Value : <angka> atau infinite
+
+       >> Contoh : 
+
+	  		.kotak {
+				width: 200px;
+				height: 200px;
+				background-color: salmon;
+				animation: animasiKotak 2s ease infinite;
+			}
+
+    6. animation-direction: [direction] = Arah dari animasi berjalan
+
+       => Value : normal(default) berjalan dari awal ke akhir, reverse berjalan 
+		  dari akhir ke awal, alternate berjalan berganti2 dimulai dari 
+		  awal, alternate-reverse berjalan berganti2 dimulai dari akhir
+
+       >> Contoh : 
+
+				animation: animasiKotak 2s ease 2 alternate;
+
+    7. animation-fill-mode: [fill-mode] = Utk menentukan akhir dari transisi 
+					  seperti apa, jika tdk ingin 
+					  transisinya kembali ke awal, kita 
+					  tambahkan value forwards
+
+       => Value : none(default), forwards tdk kembali ke posisi awal, 
+		  backwards, both
+
+       >> Contoh : 
+
+				animation: animasiKotak 2s ease 2 alternate-
+					   reverse forwards;
+
+    8. animation-play-state: [play-state] = Utk membuat animasinya berjalan dan 
+					    berhenti
+
+       => Value : running, paused
+
+       => Butuh Javascript utk menerapkan dgn value paused

@@ -1,0 +1,85 @@
+ >> PENGENALAN CSS3 <<
+
+
+ >> CSS3 = Generasi ke-3 dari spesifikasi CSS yg direkomendasikan oleh W3C
+
+ >> CSS Generasi 1 = Syntax dari CSS Dasar, seperti property font, background. 
+		     CSS 1 masih tetap bisa kita gunakan
+
+ >> CSS Generasi 2.1 = Perkembangan property CSS 1, dgn menambah property lain 
+		       yg baru, seperti box model, table maupun selector
+
+ >> CSS Generasi 3 = Fitur2 yg ada di versi sebelumnya, ditambahkan, ada yg 
+		     tetep sama dan ada yg diperbaiki dan bahkan dihilangkan, 
+		     fitur2 di CSS3 kita sebut dgn "Modul"
+
+ >> CSS3 dibagi beberapa modul dan tiap modul menambahkan kemampuan/fitur yg 
+    ada di CSS2
+
+ >> Modul CSS3 : 
+
+    1. Template Layout
+    2. Background and Borders
+    3. Ruby
+    4. Basic User Interface
+    5. Basic Box Model
+    6. Grid Positioning
+    7. Speech
+    8. Marquee
+    9. Style Attribute Syntax
+    10. Cascading and Inheritance
+    11. Color
+    12. Fonts
+    13. Text
+    14. Generated Content for Paged Media
+    15. Generated and Replaced Content
+    16. Values and Units
+    17. Web Fonts
+    18. Behavioral Extensions to CSS
+    19. Line Layout
+    20. Flexible Box Layout
+    21. Image Values
+    22. 2D Transformations
+    23. Multi-column Layout
+    24. 3D Transformations
+    25. Namespaces
+    26. Transitions
+    27. Animations
+    28. View Module
+    29. Media Queries
+    30. Paged Media
+    31. Selectors
+
+ >> Alasan menggunakan CSS3 :
+
+    1. Membuat website menjadi lebih fleksibel
+    2. Membuat mock-up dgn cepat tanpa bantuan bahasa scripting
+    3. Mengurangi penggunaan gambar = Kecepatan load halaman
+    4. Penggunaan selector utk menghindari penggunaan markup yg boros
+
+ >> Contoh kasus membuat kotak yg tiap sisinya tumpul :
+
+ >> Kita harus membuat kotak yg tumpul dari photoshop, lalu tiap ujungnya yg 
+    tumpul, kita screenshot, lalu tempelkan pada sisi2 kotak yang ada di 
+    website kita. Sehingga akan menghasilkan 4 gambar dan 1 kotak
+
+ >> Banyak hal yg kita lakukan sebelum adanya CSS3, melalui gambar ataupun 
+    flash/javascript.
+
+ >> Dgn menggunakan CSS3, ada property yg namanya border-radius yg valuenya 
+    berupa angka, mau berapa pixel
+
+ >> Website utk melihat semua property CSS3 : 
+    https://www.quackit.com/css/css3/properties/
+
+ >> Ada beberapa property yg hanya jalan di browser tertentu(browser support)
+
+ >> Utk mengatasinya, kita harus menambahkan vendor-prefixes(utk menjalankan 
+    property tertentu CSS3)
+
+ >> Vendor prefixes => -webkit-, -moz-, -ie-, -o-
+
+ >> Alasan menambahkan vendor prefixes : karena tiap browser memiliki 
+    karakteristik berbeda
+
+ >> Tujuannya : Menulis syntax yg 'berjalan' di hampir semua browser

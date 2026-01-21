@@ -1,0 +1,119 @@
+ >> VENDOR PREFIX <<
+
+
+ >> vendor prefixes = Teknik di CSS3 yg digunakan agar syntax CSS3 compatible 
+		      di semua browser
+
+ >> vendor prefixes = Syntax khusus yg harus ditambahkan utk beberapa property 
+		      CSS3
+
+ >> Syntax spesifik utk tiap browser/vendor
+
+ >> Prefix = Awalan
+
+ >> Vendor = Browser yg bersangkutan
+
+ >> Contoh penggunaan vendor prefixes : 
+
+    -webkit-<property-css3>
+
+    -moz-<property-css3>
+
+    -ms-<property-css3>
+
+    -o-<property-css3>
+
+ >> Alasan kenapa harus menambahkan prefix pada CSS, karena tdk semua browser 
+    support CSS3(Pada 2016)
+
+ >> vendor prefixes : 
+
+    1. -webkit- (Chrome, Safari, Opera versi terbaru)
+
+    2. -moz- (Firefox)
+
+    3. -ms- (Internet Explorer)
+
+    4. -o- (Opera versi terdahulu)
+
+ >> Ada beberapa property CSS3 yg di Firefox jalan, tapi di Chrome, Safari dan 
+    Opera versi terbaru gk jalan, maka kita hanya menambahkan -webkit- saja
+
+ >> Contoh penerapannya :
+    
+    1. Kita bikin file dgn ekstensi .html, yg di dlmnya kita buat syntax html 
+       sederhana
+
+    2. Di dlm tag body ada tag img dgn mengarah ke foto yg kita simpan di 
+       folder project kita dgn atribut alternative nama lengkap kita
+
+    3. Di dlm tag head, buat tag style yg di dlmnya terdapat selector body dgn 
+       property arah teks berada di tengah
+
+       Contoh : 
+
+		<style>
+			body {
+				text-align: center;
+			}
+		</style>
+	</head>
+	<body>
+		<img src="Foto1.jpeg" alt="Ryan Dhika Permana" />
+	</body>
+
+    4. Selanjutnya kita tambahkan property yg namanya filter utk mengetahui 
+       apakah web browser bisa menjalankan property tersebut
+
+    5. Property filter digunakan utk memberikan efek kepada elemen, khususnya 
+       gambar, agar gambar dapat berubah brightness, saturation, dll
+
+    6. Beri value di property filter dgn grayscale() agar gambar berwarna abu2 
+       yg di dlmnya diisi 100%
+
+       Contoh : 
+
+			img {
+				filter: grayscale(100%);
+			}
+
+    7. Hasilnya, gambar tidak berwarna abu2 di chrome(pada saat 2016), kalau 
+       halaman kita buka di firefox, maka gambarnya berubah jadi grayscale, 
+       karena firefox support propertynya sedangkan chrome tidak
+
+    8. Jika property ingin berjalan di chrome, kita dapat tambahkan vendor 
+       prefixes sebelum penulisan property filter
+
+       Contoh : 
+
+	-webkit-filter: grayscale(100%);
+
+    9. Hasilnya, property filter dpt berjalan di chrome, safari dan opera, 
+       sehingga gambar akan berwarna abu2
+
+ >> Property CSS3 yg butuh vendor prefixes (Pada 2016) : 
+
+    1. Kunjungi website : shouldiprefix.com (SUDAH TIDAK BISA)
+
+    2. Kunjungi website : https://caniuse.com/, semua property CSS dan HTML 
+			  bisa kita cek penggunaannya disini. Terdapat search 
+			  engine utk mencari property CSS yg ingin kita 
+			  dapatkan informasinya
+
+       => Yang merah tdk dpt diakses, yg kuning tdk di support secara penuh, 
+	  hijau artinya di support. Kalau warnanya hijau, namun di kanan 
+	  atasnya ada warna kuning, berarti property di support namun dgn 
+	  prefix
+
+    3. Kunjungi website : https://pleeease.iamvdo.me/play/, Kita gk perlu 
+       menghafal property yg membutuhkan utk ditambahkan vendor prefix, tapi 
+       kita tinggal menuliskan syntax, lalu website akan menerjemahkan apakah 
+       butuh vendor prefix atau tidak
+
+       => Ketika kita tulis selector img yg di dlmnya ada property filter, maka 
+	  secara otomatis tampilan di kanannya, akan berubah menggunakan vendor 
+	  perfix
+
+    4. Kita gunakan plugin emmet, dgn menginstallnya di kode editor kita 
+       (Tutorial Visual Studio Code/Sublime Text), secara otomatis vendor 
+       prefix akan ditambahkan

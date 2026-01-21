@@ -1,0 +1,294 @@
+ >> GALERI FOTO + LIGHTBOX PART 2 <<
+
+
+ >> Pada bagian ini kita akan tambahkan fitur lightbox
+
+ >> Penerapannya : 
+
+    1. Buat tag div dgn class overlay di bawah tag a pada tag li awal, fungsi 
+       overlay utk membuat lapisan warna hitam transparan sebagai dasar dari 
+       lightbox. Gunakan selector overlay, lalu tambahkan property position dgn 
+       value fixed agar posisi dari overlay tidak terganggu apabila kita scroll 
+       halamannya. Agar ukuran penuh satu layar, kita tambahkan property top, 
+       right, bottom dan left sebesar 0 agar membuat elemen penuh memenuhi 
+       containernya, tambahkan background dgn warna rgba dgn nilai 0, lalu 
+       alpha nya sebesar .8 agar agak transparan
+
+       Contoh : 
+
+       .overlay {
+		position: fixed;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background: rgba(0, 0, 0, 0.8);
+	}
+
+    2. Hasilnya overlay akan menutupi semua halaman, kecuali 3 gambar setelah 
+       gambar pertama, karena overlay hanya ditulis di dlm tag li pertama, 
+       sedangkan li posisinya non-static, karenanya, maka tag li kedua dan 
+       seterusnya lapisannya berada di depan. Solusinya kita bikin lapisan 
+       overlay berada di paling depan dgn menambahkan property z-index pada 
+       selector .overlay dgn value 9999
+
+       Contoh : 
+
+	z-index: 9999;
+
+    3. Gunakan pseudo class :target utk membuat overlay dijalankan ketika 
+       gambar di klik. Caranya kita beri value href pada tag a pertama dgn 
+       "#gambar-1" dan tambahkan atribut id dgn value "gambar-1" pada tag div 
+       dgn class overlay
+
+       Contoh : 
+
+	<li>
+		<a href="#gambar-1">
+			<img src="img/thumbs/Gambar1.jpeg" alt="Sama Kakak Via" 
+			/>
+			<span>Sama Kakak Via</span>
+		</a>
+		<div class="overlay" id="gambar-1"></div>
+	</li>
+
+    4. Buat selector baru utk class overlay, gunakan pseudo class :target. 
+       Pindahkan property bottom dan right yg ada di dlm selector overlay ke 
+       overlay:target
+
+       Contoh : 
+
+	.overlay {
+		position: fixed;
+		top: 0;
+		left: 0;
+		background: rgba(0, 0, 0, 0.8);
+		z-index: 9999;
+	}
+
+	.overlay:target {
+		right: 0;
+		bottom: 0;
+	}
+
+    5. Jadi keadaan awal, overlay hanya berada di kiri atas saja, belum tarik 
+       menarik antar top bottom left dan right, tapi ketika gambar, di klik, 
+       maka overlay akan muncul dan url akan menambahkan #gambar-1. Kita bikin 
+       transisi sebelum dan sesudah muncul overlay dgn mengganti value alpha 
+       dgn 0, lalu ketika gambar di klik, overlay baru akan muncul dgn 
+       alpha .7. Tambahkan property transition dgn value .8 pada selector 
+       overlay
+
+       Contoh : 
+
+	.overlay {
+		position: fixed;
+		top: 0;
+		left: 0;
+		background: rgba(0, 0, 0, 0);
+		z-index: 9999;
+		transition: 0.8s;
+	}
+
+	.overlay:target {
+		right: 0;
+		bottom: 0;
+		background: rgba(0, 0, 0, 0.7);
+	}
+
+    6. Di dlm tag overlay, buat tag img utk gambar 1
+
+       Contoh : 
+
+	<div class="overlay" id="gambar-1">
+		<img src="img/full/Gambar1.jpeg" alt="Sama Kakak Via" />
+	</div>
+
+    7. Hasilnya, gambar akan muncul dari awal, bukan ketika thumbnail di klik, 
+       cara mengatasinya adalah, kita bikin ukuran overlay kecil banget sampai 
+       tidak terlihat dgn menambahkan lebar dan tinggi sebesar 0px dan 
+       overflow dgn value hidden pada selector overlay. Pada saat di target, 
+       atur lebar dan tingginya supaya menyesuaikan isinya, jadi lebar dan 
+       tingginya diisi value auto
+
+       Contoh : 
+
+	.overlay {
+		width: 0px;
+		height: 0px;
+		overflow: hidden;
+		position: fixed;
+		top: 0;
+		left: 0;
+		background: rgba(0, 0, 0, 0);
+		z-index: 9999;
+		transition: 0.8s;
+	}
+
+	.overlay:target {
+		width: auto;
+		height: auto;
+		right: 0;
+		bottom: 0;
+		background: rgba(0, 0, 0, 0.7);
+	}
+
+    8. Selanjutnya kita atur posisi dan ukuran dari gambarnya. Buat 
+       selector .overlay img utk mengatur style dari img yg ada di dlm tag dgn 
+       class overlay, dgn property max-height atau tinggi maksimalnya sebesar 
+       100%, maksudnya adalah tinggi dari gambar akan menyesuaikan sesuai dgn 
+       tinggi dari browsernya, utk posisinya gunakan text align dgn value 
+       center. Tambahkan property padding atas-bawah 100px dan kiri-kanan 0 
+       pada selector overlay
+
+       Contoh : 
+
+	.overlay {
+		width: 0px;
+		height: 0px;
+		overflow: hidden;
+		position: fixed;
+		top: 0;
+		left: 0;
+		background: rgba(0, 0, 0, 0);
+		z-index: 9999;
+		transition: 0.8s;
+		padding: 100px 0;
+		text-align: center;
+	}
+
+	.overlay img {
+		max-height: 100%;
+	}
+
+    9. Selanjutnya kita beri bayangan pada gambar dgn menambahkan property box-
+       shadow pada selector img yg di overlay yg valuenya 2px 2px 7px rgba dgn 
+       value 0 semua dan alphanya 0.5
+
+       Contoh : 
+
+	.overlay img {
+		max-height: 100%;
+		box-shadow: 2px 2px 7px rgba(0, 0, 0, 0.5);
+	}
+
+    10. Selanjutnya kita buat animasi, gambar akan muncul dgn zoom in, caranya 
+	kita buat komentar dgn isi animasi, buat @keyframes dgn nama animasinya 
+	zoomDanFade yg di dlmnya pada saat 0%, tambahkan property transform dgn 
+	value scale() sebesar 0 dan opacity 0, pada saat 100% tambahkan 
+	property transform dgn value scale() sebesar 1 dan opacity sebesar 1. 
+	Buat selector baru dgn menggunakan psudo class :target pada class 
+	overlay, lalu gambarnya kita styling, tambahkan property animation dgn 
+	value nama dari keyframes yg sudah dibuat dan durasi dari animasinya 1s
+
+	Contoh : 
+
+	.overlay:target img {
+		animation: zoomDanFade 1s;
+	}
+
+	/* animasi */
+
+	@keyframes zoomDanFade {
+		0% {
+			transform: scale(0);
+			opacity: 0;
+		}
+		100% {
+			transform: scale(1);
+			opacity: 1;
+		}
+	}
+
+    11. Selanjutnya, kita bikin tombol close utk menghilangkan overlay, jadi 
+	tdk perlu menghapus URL nya. Caranya sebelum tag img yg ada di dlm tag 
+	overlay, kita bikin tag a dgn class close yg isi kontennya x close, 
+	href nya diisi value #
+
+	Contoh : 
+
+	<div class="overlay" id="gambar-1">
+		<a href="#" class="close">x close</a>
+		<img src="img/full/Gambar1.jpeg" alt="Sama Kakak Via" />
+	</div>
+
+    12. Di CSS, buat selector .overlay .close yg di dlmnya kita beri position 
+	dgn value absolute, karena selector overlay sudah non-static sebab 
+	position fixed, maka kita tinggal atur utk tombol close saja. beri top 
+	dgn value 50px dan left dgn value 50%, tapi karena tombol memiliki 
+	dimensi, maka kita harus tarik ke kiri agar tulisan tombol closenya 
+	berada di tengah, gunakan margin left dgn value -20px. Beri warna teks 
+	putih dan gunakan property text-decoration dgn value none. Tambahkan 
+	warna background hitam, property border dgn value 1px solid white, 
+	reset line-height yg ada pada selector body dgn menulis ulang property 	tersebut pada selector close, beri value sebesar 14px dan padding 
+	sebesar 5px
+
+	Contoh : 
+
+	.overlay .close {
+		position: absolute;
+		top: 50px;
+		left: 50%;
+		margin-left: -20px;
+		background-color: black;
+		text-decoration: none;
+		color: white;
+		line-height: 14px;
+		border: 1px solid white;
+		padding: 5px;
+	}
+
+    13. Selanjutnya, kita beri animasi pada tombol close, dgn munculnya ketika 
+	gambar sudah 80% progres animasinya, lalu tombol close muncul dari atas 
+	ke bawah. Dgn membuat keyframe baru dgn nama slideDownFade yg di dlmnya 
+	ketika 0% di dlmnya buat property opacity sebesar 0 dan margin 
+	atas -20px, pada saat 100% buat opacitynya 1 dan margin atas 0, kembali 
+	ke keadaan awal. Gunakan keyframe ini pada selector baru pada saat 
+	overlay di target tombol close di dlmnya kita style dgn memberi 
+	property animation dgn value slideDownFade dan durasi .5s dan delay .5s
+
+	Contoh : 
+
+	.overlay:target .close {
+		animation: slideDownFade 0.5s 0.5s;
+	}
+
+	@keyframes slideDownFade {
+		0% {
+			opacity: 0;
+			margin-top: -20px;
+		}
+		100% {
+			opacity: 1;
+			margin-top: 0;
+		}
+	}
+
+    14. Tambahkan property opacity dgn value 0 pada selector close utk membuat 
+	keadaan awal hilang dahulu baru ketika dianimasikan akan muncul, namun 
+	ketika dijalankan hasilnya setelah animasi dilakukan, maka akan kembali 
+	ke keadaan awal, solusinya kita tambahkan parameter lain pada animasi 
+	dgn value forwards. Jadi animasi akan berhenti di keadaan akhir
+
+	Contoh : 
+
+	.overlay .close {
+		position: absolute;
+		top: 50px;
+		left: 50%;
+		margin-left: -20px;
+		background-color: black;
+		text-decoration: none;
+		color: white;
+		line-height: 14px;
+		border: 1px solid white;
+		padding: 5px;
+		opacity: 0;
+	}
+
+	.overlay:target .close {
+		animation: slideDownFade 0.5s 0.5s forwards;
+	}
+
+    15. Selanjutnya, kita copas satu div dgn class overlay ke semua gambar yg 
+	kita miliki

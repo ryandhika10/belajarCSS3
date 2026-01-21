@@ -1,0 +1,98 @@
+ >> WEB FONT GENERATOR << 
+
+
+ >> Pada website fontsquirrel, ada beberapa font yg memberikan syntax @font-
+    face ketika kita mendownload, jadi gk perlu ketik manual
+
+ >> Salah satunya adalah Open Sans, kita tidak klik biru yg ada di kanan bawah, 
+    melainkan klik fontnya, maka akan tampil detail fontnya
+
+ >> Kita klik lagi opsi webfont kit di navbarnya, maka ada menu utk mendownload 
+    format file yg kita perlukan utk @font-face kita, cari aja font yg memiliki 
+    fasilitas webfont kit
+
+ >> Font yg paling bagus utk web ekstensinya WOFF, kita bisa download semua, 
+    atau WOFFnya saja 
+
+ >> Kita checkbox WOFFnya saja, lalu klik download, setelah di download, buka 
+    zipnya, di dlmnya terdapat license, cara penggunaan dan folder fontnya dgn 
+    berbagai ukuran font-weight
+
+ >> Kita pilih folder yg regular, yg kita butuhkan satu file yg ekstensinya 
+    woff, kita copas lalu pindahkan ke folder kodingan website kita
+
+ >> Di folder regular juga, ada file dgn ekstensi css, jika kita buka, maka 
+    syntaxnya sudah dibuatkan utk kita copas hanya syntax yg ekstensinya woff
+
+ >> Pindahkan syntaxnya ke file html kita
+
+ >> Contoh : 
+
+			@font-face {
+				font-family: "open_sansregular";
+				src: url("OpenSans-Regular-webfont.woff") 					format("woff");
+				font-weight: normal;
+				font-style: normal;
+			}
+
+ >> Selanjutnya kita ganti value dari font-family di h1 dgn value yg ada di 
+    @font-face
+
+ >> Contoh : 
+
+			h1 {
+				font-size: 100px;
+				text-align: center;
+				font-family: "open_sansregular", arial;
+			}
+
+ >> WOFF/WOFF2 = Web Open File Format
+
+    => Dikembangkan oleh Mozilla
+    => Dibuat khusus utk webisite
+    => Supaya dpt di-load lebih cepat daripada jenis font yg lain
+    => Walauput formatnya mirip TTF/OTF, tapi dikompres lagi supaya lebih cepat
+
+ >> Utk tipe TTF/OTF, kita bisa ubah jadi WOFF dgn menggunakan web font 
+    generator yg kebetulan web fontsquirrel memilikinya
+
+ >> Cara penerapan web font generator : 
+
+    1. Pilih opsi generator di navbar, setelahnya kita upload font dgn ekstensi 
+       ttf/otf
+
+    2. Gunakan file alexbrush, lalu pilih opsi sesuai yg diinginkan, sarannya 
+       kita pilih yg optimal, lalu pastika font yg kita pilih adalah font yg 
+       boleh digunakan di web yg di tandai dgn icon kedua/bola dunia berwarna 
+       hitam
+
+    3. Jika nyala, maka kita bisa centang checkbox, setelah itu klik tombol 
+       download your kit
+
+    4. Hasilnya akan muncul ekstensi zip yg di dlmnya ada file font dgn 
+       ekstensi woff dan woff2, tinggal copas dan pindahkan ke folder kodingan 
+       kita
+
+    5. Dan di folder tersebut sdh dibuatkan syntax css nya, kita buka filenya, 
+       lalu copas syntaxnya khusus utk yg ekstensinya woff dan woff2. Jadi 
+       sekarang ada 2 selector @font-face yg ada di html kita
+
+       Contoh : 
+
+			@font-face {
+				font-family: "alex_brushregular";
+				src: url("alexbrush-regular-webfont.woff2") 				     format("woff2"),
+				     url("alexbrush-regular-webfont.woff") 				     format("woff");
+				font-weight: normal;
+				font-style: normal;
+			}
+
+ >> Tinggal kita ubah value font-family yg ada di selector h1
+
+    Contoh : 
+
+			h1 {
+				font-size: 100px;
+				text-align: center;
+				font-family: "alex_brushregular", arial;
+			}

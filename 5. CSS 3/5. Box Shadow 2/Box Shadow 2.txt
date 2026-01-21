@@ -1,0 +1,92 @@
+ >> PENERAPAN PROPERTY OPSIONAL BOX SHADOW <<
+
+
+ >> Penulisan box-shadow :
+
+    -> box-shadow: <inset> <x-offset> <y-offset> <blur> <spread> <color>
+
+ >> spread, mirip dgn size atau ukuran bayangan semakin besar valuenya(px) 
+    semakin lebar bayangannya
+
+    -> Contoh :
+
+	box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.75);
+
+ >> Kalau value dari parameter spread dihilangkan, ukuran bayangan sama seperti 
+    ukuran bayangannya
+
+ >> Jika terdapat parameter blur dan spread, maka bayangan akan melebar sebesar 
+    value spread dan setelahnya bayangan akan blur sebesar value dari blur
+
+ >> Kalau parameter x-offset, y-offset dan blur semuanya bernilai 0, sementara 
+    spread memiliki nilai, misalnya 10px, maka elemen akan seperti memiliki 
+    border, padahal sebenarnya itu adalah bayangan 
+
+    -> Contoh : 
+
+	box-shadow: 0px 0px 0px 10px rgba(0, 0, 0, 0.75);
+
+ >> Kenapa kita menganggap spread sebagai size, karena value dari parameter 
+    spread bisa kita beri dgn nilai minus(-)
+
+ >> Contoh penggunaan parameter spread dgn value minus(-) :
+
+	box-shadow: 0px 30px 10px -20px rgba(0, 0, 0, 0.75);
+
+ >> Setelahnya, kita bisa buat selector div dgn hover, buat property box shadow 
+    dgn x-offset 0px, y-offset 80px, blur 10px, spread -40px dan opacity dgn 
+    rgba berwarna hitam dan 15%. Tambahkan juga property margin-top dgn value 
+    40px utk mengoverride value yg tadinya 50px, agar pada saat mouse berada di 
+    elemen, elemen seolah maju ke depan
+
+    -> Contoh : 
+
+	div:hover {
+		box-shadow: 0px 80px 10px -40px rgba(0, 0, 0, 0.15);
+		margin-top: 40px;
+	}
+
+ >> Buat property transition pada selector div selama 0.3 detik
+
+    -> Contoh : 
+
+	transition: 0.3s;
+
+ >> Paramater inset : Jika parameter diberikan, akan membuat bayangan berada di 
+		      dlm kotaknya, bukan di luar kotak
+
+ >> Contohnya jika kita buat property box-shadow dgn parameter xnya 0, ynya 0, 
+    blurnya 5px, dan spread 5px dan warna dgn rgba warna hitam dgn opacity 0.5
+
+ >> Dgn menambahkan parameter inset yg valuenya ditulis di paling pertama, maka 
+    bayangannya akan berada di dlm elemennya
+
+    -> Contoh :
+
+	box-shadow: inset 0 0 15px 5px rgba(0, 0, 0, 0.5);
+
+ >> box-shadow multiple shadow : 
+
+    -> Kita bisa memberikan lebih dari 1 shadow di dlm sebuah elemen
+
+ >> Contoh penerapan multiple shadow : 
+
+    1. box-shadow: 5px 5px 5px 5px rgba(255, 0, 0, 0.5),
+		  -5px -5px 5px 5px rgba(0, 0, 255, 0.5);
+
+       -> Maka kita akan mendapatkan bayangan di kanan-bawah berwarna merah dan 
+	  di kiri-atas berwarna biru
+
+   2. box-shadow: 0px 0px 0px 5px red, 
+		  0 0 0 10px green, 
+		  0 0 0 15px yellow,
+		  0 0 0 20px orange;
+
+       -> Maka hasilnya kita bisa ngasih multiple border, padahal ini bukan 
+	  border, melainkan shadow yg tdk memiliki blur, jika kita beri 
+	  property border radius dgn value 50%, maka elemen beserta shadow akan 
+	  membentuk lingkaran
+
+       Contoh : 
+
+	border-radius: 50%;
